@@ -13,7 +13,7 @@
 {:else if sivu === 'lopetus'}
 	<!--Lopetussivu-->
 	<h1>Pelasit loppuun!</h1>
-	<p>haluatko pelata uudestaan?</p>
+	<p>haluatko pelata uudestaan??</p>
 	<Button otsikko="Uudestaan" disabled={false} onclick={() => (sivu = 'aloitus')} />
 {/if}
 
