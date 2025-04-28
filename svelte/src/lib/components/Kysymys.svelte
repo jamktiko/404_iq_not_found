@@ -49,3 +49,13 @@
 		return valitutKysymykset;
 	}
 </script>
+
+<!--Placeholdereita oikeille asioilla-->
+<img src="" alt="" />
+
+<h1>Kysymys</h1>
+
+<button>a</button>
+<button>b</button>
+<button>c</button>
+<button>d</button>
