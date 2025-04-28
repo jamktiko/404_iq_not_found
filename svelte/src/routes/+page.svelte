@@ -2,6 +2,8 @@
 	import Button from '$lib/components/Button.svelte';
 
 	let sivu: 'aloitus' | 'lopetus' = 'aloitus';
+
+	//tee sivu pelille ja reititä
 </script>
 
 <!--Placeholdereita oikeille asioilla-->
