@@ -11,4 +11,12 @@
 	}
 
 	let kysymykset: Kysymys[] = [];
+
+	onMount(async () => {
+		const response = await fetch('/data/kysymykset.json');
+		if (!response.ok) {
+			throw new Error('Dataa ei löytynyt');
+		}
+		kysymykset = await response.json();
+	});
 </script>
