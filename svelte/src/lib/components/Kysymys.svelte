@@ -27,7 +27,7 @@
 		const montaKysymysta = 5;
 		//Virheen tarkistus tähän
 		if (taulukko.length < montaKysymysta) {
-			throw new Error('Data liian pieni');
+			throw new Error('Data ei ole tarpeeksi');
 		}
 		while (valitutKysymykset.length < montaKysymysta) {
 			//Tähän muuttujaan tallennetaan hetkellisesti kysymys
