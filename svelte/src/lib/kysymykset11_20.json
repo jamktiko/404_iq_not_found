@@ -1,13 +1,13 @@
 [
     {
-      "id": 11,
+      "id": "11",
       "question": "Mitä seuraava koodi tulostaa konsoliin?",
       "img": "ss/_q11.png",
       "vastaukset": ["A) 20, 10", "B) 10, 20", "C) 20, 20", "D) 10, 10"], 
       "oikeaVastaus": "A) 20, 10"
     },
     {
-      "id": 12,
+      "id": "12",
       "question": "Mitä seuraava koodi tulostaa konsoliin?",
       "img": "ss/_q12.png",
       "vastaukset": ["A) [2, 4, 6]", "B) 2, 4, 6", "C) [1, 2, 3]", "D) 1, 2, 3"],
