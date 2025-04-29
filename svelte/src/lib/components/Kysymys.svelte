@@ -34,14 +34,14 @@
 				pisteet++,
 				setTimeout(() => {
 					monesKysymys++;
-				}, 5000)
+				}, 3000)
 			);
 		}
 
 		console.log('väärin');
 		return setTimeout(() => {
 			monesKysymys++;
-		}, 5000);
+		}, 3000);
 	}
 </script>
 
