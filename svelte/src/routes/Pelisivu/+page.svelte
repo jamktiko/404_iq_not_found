@@ -71,6 +71,7 @@
 	<h1>Pelisivu</h1>
 
 	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
+		<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
 		<Kysymys
 			id={valitutKysymykset[monesKysymys].id}
 			img={valitutKysymykset[monesKysymys].img}
@@ -78,7 +79,6 @@
 			vastaukset={valitutKysymykset[monesKysymys].vastaukset}
 			oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
 		/>
-		<p>{monesKysymys + 1}</p>
 		<Button otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
 	{:else if monesKysymys == valitutKysymykset.length}
 		<h1>Pelasit loppuun!</h1>

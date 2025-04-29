@@ -5,3 +5,8 @@
 	import Button from '$lib/components/Button.svelte';
 	interface Vastaus {}
 </script>
+
+{#each vastaukset as vastaus}
+	<button>{vastaus}</button>
+	<br />
+{/each}
