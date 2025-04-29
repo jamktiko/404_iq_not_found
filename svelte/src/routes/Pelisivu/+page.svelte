@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import Button from '$lib/components/Button.svelte';
 	import Kysymys from '$lib/components/Kysymys.svelte';
+	import { onMount } from 'svelte';
 
 	let sivu: 'peli' | 'lopetus' = $state('peli');
 
@@ -12,13 +13,68 @@
 
 	//Pistelaskuri - oma komponentti?
 	let pisteet: number = $state(0);
+
+	//Kysymyksien haku
+	interface Kysymys {
+		id: string;
+		img: string;
+		kysymys: string;
+		vastaukset?: string[] | null;
+		oikeaVastaus: string;
+		vaikeustaso: string;
+	}
+
+	let kysymykset: Kysymys[] = $state([]);
+
+	onMount(async () => {
+		const response = await fetch('/data/kysymykset.json');
+		if (!response.ok) {
+			throw new Error('Dataa ei löytynyt');
+		}
+		kysymykset = await response.json();
+		randomKysymykset(kysymykset);
+	});
+
+	//randomit kysymykset
+	let valitutKysymykset: Kysymys[] = $state([]);
+
+	function randomKysymykset(taulukko: Kysymys[]) {
+		//Tämä määrää, montako kysymystä halutaan
+		const montaKysymysta = 5;
+		//Virheen tarkistus tähän
+		if (taulukko.length < montaKysymysta) {
+			throw new Error('Data ei ole tarpeeksi');
+		}
+		while (valitutKysymykset.length < montaKysymysta) {
+			//Tähän muuttujaan tallennetaan hetkellisesti kysymys
+			let a: Kysymys;
+
+			//random numero 0-taulukonpituus
+			//virheen tarkistus?
+			const ind: number = Math.floor(Math.random() * taulukko.length);
+
+			//Tässä tallennetaan muuttujaan taulukosta kyseisen indeksin tiedot
+			a = taulukko[ind];
+
+			//Käydään läpi valitutkysymykset taulukko, onko kyseinen objekti jo taulukossa (jos on, älä tee mitään, jos ei ole, push), tämä tehdään id:n avulla
+			if (!valitutKysymykset.some((onkoID) => a.id === onkoID.id)) {
+				valitutKysymykset.push(a);
+			}
+		}
+		console.log(valitutKysymykset);
+		return valitutKysymykset;
+	}
 </script>
 
 {#if sivu === 'peli'}
 	<!--Pelisivu-->
 	<h1>Pelisivu</h1>
 
-	<Kysymys />
+	{#each valitutKysymykset as kysymys}
+		<h1>{kysymys.kysymys}</h1>
+	{:else}
+		<h1>Loading...</h1>
+	{/each}
 
 	<Button otsikko="takaisin" onclick={() => (sivu = 'lopetus')} />
 {:else if sivu === 'lopetus'}

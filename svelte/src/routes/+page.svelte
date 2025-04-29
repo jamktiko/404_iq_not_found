@@ -5,6 +5,8 @@
 	let sivu: 'aloitus' | 'lopetus' = 'aloitus';
 
 	//tee sivu pelille ja reititä
+
+	//global state??? onMount
 </script>
 
 <!--Placeholdereita oikeille asioilla-->
