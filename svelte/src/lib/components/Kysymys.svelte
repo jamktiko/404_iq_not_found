@@ -7,21 +7,20 @@
 		oikeaVastaus: string;
 	}
 
-	let { id, img, vastaukset, oikeaVastaus }: Props = $props();
+	let { id, img, kysymys, vastaukset, oikeaVastaus }: Props = $props();
 	//Päivän kysymys: miten saan kysymykset, kuvat ja vastaukset näkymään pelisivulla?
 
 	//Propin kautta aina valituskysymykset taulukon alkio kerrallaan?
 </script>
 
 <!--Placeholdereita oikeille asioilla-->
-<img src="" alt="Koodi" />
+<img src={img} alt="Koodi" />
 
-<h1>jhdfjkh</h1>
+<h1>{kysymys}</h1>
 
-<button>a</button>
-<br />
-<button>b</button>
-<br />
-<button>c</button>
-<br />
-<button>d</button>
+{#if vastaukset}
+	{#each vastaukset as vastaus}
+		<button>{vastaus}</button>
+		<br />
+	{/each}
+{/if}

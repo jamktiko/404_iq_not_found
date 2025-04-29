@@ -71,7 +71,13 @@
 	<h1>Pelisivu</h1>
 
 	{#each valitutKysymykset as kysymys}
-		<Kysymys id={kysymys.id} img={kysymys.img} vastaukset={kysymys.vastaukset} />
+		<Kysymys
+			id={kysymys.id}
+			img={kysymys.img}
+			kysymys={kysymys.kysymys}
+			vastaukset={kysymys.vastaukset}
+			oikeaVastaus={kysymys.oikeaVastaus}
+		/>
 	{:else}
 		<h1>Loading...</h1>
 	{/each}
