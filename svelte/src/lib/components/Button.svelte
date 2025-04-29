@@ -1,6 +1,11 @@
 <script lang="ts">
-	let { otsikko, disabled, onclick }: { otsikko: string; disabled: boolean; onclick: () => void } =
-		$props();
+	interface Props {
+		otsikko: String;
+		onclick: () => void;
+		disabled?: boolean;
+	}
+
+	let { otsikko, onclick, disabled = false }: Props = $props();
 </script>
 
 <section>

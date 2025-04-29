@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
+	import { goto } from '$app/navigation';
 
 	let sivu: 'aloitus' | 'lopetus' = 'aloitus';
 
@@ -11,7 +12,7 @@
 	<!--Aloitussivu-->
 	<h1>404 IQ Not Found</h1>
 
-	<Button otsikko="Aloita" disabled={false} onclick={() => (sivu = 'lopetus')} />
+	<Button otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
 {:else if sivu === 'lopetus'}
 	<!--Lopetussivu-->
 	<h1>Pelasit loppuun!</h1>
