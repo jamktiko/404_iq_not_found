@@ -2,12 +2,16 @@
 	import { goto } from '$app/navigation';
 	import Button from '$lib/components/Button.svelte';
 
-	let sivu: 'peli' | 'lopetus' = 'peli';
-	//tee sivu pelille ja reititä
+	let sivu: 'peli' | 'lopetus' = $state('peli');
+
+	//tämän tarkoitus olisi pitää yllä monennessako alkiossa mennään valitutKysymykset taulukossa
+	//Toisin sanoen auttaisi menemään läpi kaikki kysymykset
+	//Voidaan käyttää myös muihin ominaisuuksiin tarvittaessa
+	let monesKysymys: number = $state(0);
 </script>
 
 {#if sivu === 'peli'}
-	<!--Aloitussivu-->
+	<!--Pelisivu-->
 	<h1>Pelisivu</h1>
 
 	<Button otsikko="takaisin" onclick={() => (sivu = 'lopetus')} />

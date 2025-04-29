@@ -48,6 +48,10 @@
 		console.log(valitutKysymykset);
 		return valitutKysymykset;
 	}
+
+	//Päivän kysymys: miten saan kysymykset, kuvat ja vastaukset näkymään pelisivulla?
+
+	//Propin kautta aina valituskysymykset taulukon alkio kerrallaan?
 </script>
 
 <!--Placeholdereita oikeille asioilla-->
