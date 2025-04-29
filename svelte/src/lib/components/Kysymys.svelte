@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from './Button.svelte';
 	interface Props {
 		id: string;
 		img: string;
@@ -8,9 +9,13 @@
 	}
 
 	let { id, img, kysymys, vastaukset, oikeaVastaus }: Props = $props();
-	//Päivän kysymys: miten saan kysymykset, kuvat ja vastaukset näkymään pelisivulla?
 
-	//Propin kautta aina valituskysymykset taulukon alkio kerrallaan?
+	function onkoOikeaVastaus(vastaus: string) {
+		if (vastaus === oikeaVastaus) {
+			//tässä pitäisi lisätä pisteen ja näyttää käyttäjälle, että oliko oikein
+			//samalla laittaa timeouttiin, että menee seuraavaan kysymykseen
+		}
+	}
 </script>
 
 <!--Placeholdereita oikeille asioilla-->
@@ -20,7 +25,7 @@
 
 {#if vastaukset}
 	{#each vastaukset as vastaus}
-		<button>{vastaus}</button>
+		<Button otsikko={vastaus} onclick={() => onkoOikeaVastaus(vastaus)} />
 		<br />
 	{/each}
 {/if}
