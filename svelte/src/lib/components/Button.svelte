@@ -11,3 +11,6 @@
 <section>
 	<button {onclick} {disabled}>{otsikko}</button>
 </section>
+
+<style>
+</style>
