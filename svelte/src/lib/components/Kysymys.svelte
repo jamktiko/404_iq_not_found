@@ -20,6 +20,9 @@
 		pisteet = $bindable()
 	}: Props = $props();
 
+	//KATSO KESKIVIIKKONA!!!!
+	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
+
 	function onkoOikeaVastaus(vastaus: string) {
 		//parempi virheen tarkastus id:n kanssa???
 		if (vastaus === oikeaVastaus) {

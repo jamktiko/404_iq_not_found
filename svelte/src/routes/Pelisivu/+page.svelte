@@ -70,6 +70,9 @@
 	<!--Pelisivu-->
 	<h1>Pelisivu</h1>
 
+	<!-- //KATSO KESKIVIIKKONA!!!!
+	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
+   -->
 	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
 		<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
 		<p>Pisteesi: {pisteet}</p>
