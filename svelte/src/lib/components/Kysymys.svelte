@@ -6,15 +6,39 @@
 		kysymys: string;
 		vastaukset?: string[] | null;
 		oikeaVastaus: string;
+		monesKysymys: number;
+		pisteet: number;
 	}
 
-	let { id, img, kysymys, vastaukset, oikeaVastaus }: Props = $props();
+	let {
+		id,
+		img,
+		kysymys,
+		vastaukset,
+		oikeaVastaus,
+		monesKysymys = $bindable(),
+		pisteet = $bindable()
+	}: Props = $props();
 
 	function onkoOikeaVastaus(vastaus: string) {
+		//parempi virheen tarkastus id:n kanssa???
 		if (vastaus === oikeaVastaus) {
 			//tässä pitäisi lisätä pisteen ja näyttää käyttäjälle, että oliko oikein
 			//samalla laittaa timeouttiin, että menee seuraavaan kysymykseen
+			console.log('Oikein!');
+
+			return (
+				pisteet++,
+				setTimeout(() => {
+					monesKysymys++;
+				}, 5000)
+			);
 		}
+
+		console.log('väärin');
+		return setTimeout(() => {
+			monesKysymys++;
+		}, 5000);
 	}
 </script>
 

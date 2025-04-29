@@ -72,12 +72,15 @@
 
 	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
 		<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
+		<p>Pisteesi: {pisteet}</p>
 		<Kysymys
 			id={valitutKysymykset[monesKysymys].id}
 			img={valitutKysymykset[monesKysymys].img}
 			kysymys={valitutKysymykset[monesKysymys].kysymys}
 			vastaukset={valitutKysymykset[monesKysymys].vastaukset}
 			oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
+			bind:monesKysymys
+			{pisteet}
 		/>
 		<Button otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
 	{:else if monesKysymys == valitutKysymykset.length}
