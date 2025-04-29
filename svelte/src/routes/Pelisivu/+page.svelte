@@ -43,7 +43,7 @@
 		const montaKysymysta = 5;
 		//Virheen tarkistus tähän
 		if (taulukko.length < montaKysymysta) {
-			throw new Error('Data ei ole tarpeeksi');
+			throw new Error('Dataa ei ole tarpeeksi');
 		}
 		while (valitutKysymykset.length < montaKysymysta) {
 			//Tähän muuttujaan tallennetaan hetkellisesti kysymys
@@ -76,6 +76,7 @@
 	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
 		<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
 		<p>Pisteesi: {pisteet}</p>
+
 		<Kysymys
 			id={valitutKysymykset[monesKysymys].id}
 			img={valitutKysymykset[monesKysymys].img}
@@ -85,6 +86,7 @@
 			bind:monesKysymys
 			{pisteet}
 		/>
+
 		<Button otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
 		<Button otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
 	{:else if monesKysymys == valitutKysymykset.length}
