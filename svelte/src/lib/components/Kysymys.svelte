@@ -30,18 +30,13 @@
 			//samalla laittaa timeouttiin, että menee seuraavaan kysymykseen
 			console.log('Oikein!');
 
-			return (
-				pisteet++,
-				setTimeout(() => {
-					monesKysymys++;
-				}, 3000)
-			);
+			pisteet++;
 		}
 
 		console.log('väärin');
 		return setTimeout(() => {
 			monesKysymys++;
-		}, 3000);
+		}, 2000);
 	}
 </script>
 
