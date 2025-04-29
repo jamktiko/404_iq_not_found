@@ -1,0 +1,46 @@
+.infotausta {
+  background-image: url('kuvat/taustakuvakokeilu.png');
+  background-size: cover;
+  padding: 20px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.info {
+  background-color: black;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  padding: 10px;
+  width: 750px;
+  height: 150px;
+  position: relative;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-family: sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  -webkit-text-stroke: 1px #fff;
+}
+
+.close {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+  background-color: #000000;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Jaro', sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+}
