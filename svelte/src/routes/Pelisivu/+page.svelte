@@ -86,6 +86,7 @@
 			{pisteet}
 		/>
 		<Button otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
+		<Button otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
 	{:else if monesKysymys == valitutKysymykset.length}
 		<h1>Pelasit loppuun!</h1>
 		<p>haluatko pelata uudestaan??</p>
