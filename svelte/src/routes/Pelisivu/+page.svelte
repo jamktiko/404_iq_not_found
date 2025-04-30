@@ -27,6 +27,7 @@
 
 	let kysymykset: Kysymys[] = $state([]);
 
+	// vaihda oikeeseen json tiedostoon ja tee muokkaukset sen mukaan
 	onMount(async () => {
 		document.body.className = 'pelisivu-body';
 		const response = await fetch('/data/kysymykset.json');
@@ -82,17 +83,15 @@
 			<p>Pisteesi: {pisteet}</p>
 		</div>
 
-		<div class="vanhempi">
-			<Kysymys
-				id={valitutKysymykset[monesKysymys].id}
-				img={valitutKysymykset[monesKysymys].img}
-				kysymys={valitutKysymykset[monesKysymys].kysymys}
-				vastaukset={valitutKysymykset[monesKysymys].vastaukset}
-				oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
-				bind:monesKysymys
-				{pisteet}
-			/>
-		</div>
+		<Kysymys
+			id={valitutKysymykset[monesKysymys].id}
+			img={valitutKysymykset[monesKysymys].img}
+			kysymys={valitutKysymykset[monesKysymys].kysymys}
+			vastaukset={valitutKysymykset[monesKysymys].vastaukset}
+			oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
+			bind:monesKysymys
+			bind:pisteet
+		/>
 
 		<Button vastaus={false} otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
 		<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />

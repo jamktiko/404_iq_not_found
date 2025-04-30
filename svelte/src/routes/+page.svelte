@@ -2,7 +2,7 @@
 	import '$lib/fonts/fonts.css';
 	import Button from '$lib/components/Button.svelte';
 	import { goto } from '$app/navigation';
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 
 	onMount(() => {
 		document.body.className = 'aloitussivu-body';
@@ -11,7 +11,7 @@
 	//tee sivu pelille ja reititä
 </script>
 
-<!--Placeholdereita oikeille asioilla-->
+<!--teemavalitsin, montakysymystä, ns asetukset-->
 
 <!--Aloitussivu-->
 <div class="body">
