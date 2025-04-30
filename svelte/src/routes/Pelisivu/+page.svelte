@@ -114,3 +114,6 @@
 	<p>haluatko pelata uudestaan??</p>
 	<Button otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
 {/if}
+
+<style>
+</style>
