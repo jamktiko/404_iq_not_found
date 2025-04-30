@@ -2,6 +2,16 @@
 	import '$lib/fonts/fonts.css';
 	import Button from '$lib/components/Button.svelte';
 	import { goto } from '$app/navigation';
+	import { onMount, onDestroy } from 'svelte';
+
+	onMount(() => {
+		document.body.className = 'aloitussivu-body';
+	});
+
+	onDestroy(() => {
+		// Optional: clear body class when navigating away
+		document.body.className = '';
+	});
 
 	//tee sivu pelille ja reititä
 </script>
@@ -18,7 +28,7 @@
 
 <style>
 	/* Tämä vaikuttaa myös pelisivuun!!!! */
-	:global(body) {
+	:global(body.aloitussivu-body) {
 		margin: 20px;
 		padding: 10px;
 		display: flex;
