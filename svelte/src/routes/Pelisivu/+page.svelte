@@ -75,18 +75,24 @@
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
    -->
 	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
-		<!-- <h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
-		<p>Pisteesi: {pisteet}</p> -->
+		<div class="moneskysymys">
+			<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
+		</div>
+		<div class="pisteet">
+			<p>Pisteesi: {pisteet}</p>
+		</div>
 
-		<Kysymys
-			id={valitutKysymykset[monesKysymys].id}
-			img={valitutKysymykset[monesKysymys].img}
-			kysymys={valitutKysymykset[monesKysymys].kysymys}
-			vastaukset={valitutKysymykset[monesKysymys].vastaukset}
-			oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
-			bind:monesKysymys
-			{pisteet}
-		/>
+		<div class="vanhempi">
+			<Kysymys
+				id={valitutKysymykset[monesKysymys].id}
+				img={valitutKysymykset[monesKysymys].img}
+				kysymys={valitutKysymykset[monesKysymys].kysymys}
+				vastaukset={valitutKysymykset[monesKysymys].vastaukset}
+				oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
+				bind:monesKysymys
+				{pisteet}
+			/>
+		</div>
 
 		<Button vastaus={false} otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
 		<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
@@ -125,5 +131,22 @@
 		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed;
 		background-size: cover;
 		color: white;
+	}
+
+	.pisteet {
+		position: absolute;
+		top: 10px;
+		right: 100px;
+		width: 70px;
+		height: 50px;
+		font-size: smaller;
+	}
+	.moneskysymys {
+		position: absolute;
+		top: 10px;
+		left: 100px;
+		width: 70px;
+		height: 50px;
+		font-size: smaller;
 	}
 </style>

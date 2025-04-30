@@ -41,7 +41,7 @@
 </script>
 
 <div class="container">
-	<div class="code-block"><img src="" alt="Koodi" /></div>
+	<div class="code-block"><img src={img} alt="Koodi" /></div>
 
 	<div class="question">{kysymys}</div>
 
@@ -54,7 +54,7 @@
 </div>
 
 <style>
-	/* .question {
+	.question {
 		font-size: 24px;
 		background: white;
 		color: black;
@@ -66,7 +66,7 @@
 		max-width: fit-content;
 		margin-left: auto;
 		margin-right: auto;
-	} */
+	}
 
 	.code-block {
 		background: #ffffffaa;
