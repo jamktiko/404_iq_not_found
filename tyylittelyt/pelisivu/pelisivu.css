@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: 'Jaro', sans-serif;
+  font-size: 25px;
+  background: url(taustakuva.png) no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.koodi-box {
+  width: 90%;
+  max-width: 700px;
+  height: 30vh;
+  background-color: aliceblue;
+  margin-bottom: 20px;
+}
+
+.kysymys-box {
+  background: white;
+  color: black;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+}
+
+.vaihtoehdot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.option-button {
+  background: black;
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  width: 90%;
+  max-width: 600px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.option-button:hover {
+  background: #333;
+}
