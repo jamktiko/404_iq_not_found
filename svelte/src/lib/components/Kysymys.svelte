@@ -40,14 +40,44 @@
 	}
 </script>
 
-<!--Placeholdereita oikeille asioilla-->
-<img src={img} alt="Koodi" />
+<div class="container">
+	<div class="code-block"><img src="" alt="Koodi" /></div>
 
-<h1>{kysymys}</h1>
+	<div class="question">{kysymys}</div>
 
-{#if vastaukset}
-	{#each vastaukset as vastaus}
-		<Button otsikko={vastaus} onclick={() => onkoOikeaVastaus(vastaus)} />
-		<br />
-	{/each}
-{/if}
+	{#if vastaukset}
+		{#each vastaukset as vastaus}
+			<Button vastaus={true} otsikko={vastaus} onclick={() => onkoOikeaVastaus(vastaus)} />
+			<br />
+		{/each}
+	{/if}
+</div>
+
+<style>
+	/* .question {
+		font-size: 24px;
+		background: white;
+		color: black;
+		padding: 15px;
+		margin-bottom: 20px;
+		border-radius: 10px;
+		text-align: center;
+		max-width: 700px;
+		max-width: fit-content;
+		margin-left: auto;
+		margin-right: auto;
+	} */
+
+	.code-block {
+		background: #ffffffaa;
+		height: fit-content;
+		margin-bottom: 20px;
+		border-radius: 10px;
+	}
+	.container {
+		max-width: 900px;
+		margin: 100px auto;
+		border-radius: 20px;
+		padding: 20px;
+	}
+</style>

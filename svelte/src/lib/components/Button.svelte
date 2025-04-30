@@ -3,17 +3,22 @@
 		otsikko: String;
 		onclick: () => void;
 		disabled?: boolean;
+		vastaus: boolean;
 	}
 
-	let { otsikko, onclick, disabled = false }: Props = $props();
+	let { otsikko, onclick, disabled = false, vastaus }: Props = $props();
 </script>
 
-<section>
-	<button {onclick} {disabled}>{otsikko}</button>
-</section>
+{#if vastaus}
+	<button class="vastaus" {onclick} {disabled}>{otsikko}</button>
+{:else}
+	<section>
+		<button class="eiVastaus" {onclick} {disabled}>{otsikko}</button>
+	</section>
+{/if}
 
 <style>
-	button {
+	.eiVastaus {
 		width: 800px;
 		flex-shrink: 0;
 		border-radius: 25px;
@@ -30,5 +35,23 @@
 		margin-top: 45px;
 		margin-bottom: 35px;
 		cursor: pointer;
+	}
+	.vastaus {
+		display: block;
+		width: 100%;
+		background: black;
+		color: white;
+		font-family: 'Jaro';
+		border: 2px solid white;
+		border-radius: 30px;
+		padding: 15px;
+		font-size: 25px;
+		margin: 10px 0;
+		cursor: pointer;
+		transition: background 0.3s;
+	}
+
+	.vastaus:hover {
+		background: #444;
 	}
 </style>

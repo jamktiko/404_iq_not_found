@@ -8,37 +8,38 @@
 		document.body.className = 'aloitussivu-body';
 	});
 
-	onDestroy(() => {
-		// Optional: clear body class when navigating away
-		document.body.className = '';
-	});
-
 	//tee sivu pelille ja reititä
 </script>
 
 <!--Placeholdereita oikeille asioilla-->
 
 <!--Aloitussivu-->
-<div class="info">i</div>
-<div>
-	<h2>404</h2>
-	<h1>IQ Not Found</h1>
-	<Button otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+<div class="body">
+	<div class="info">i</div>
+	<div>
+		<h2>404</h2>
+		<h1>IQ Not Found</h1>
+		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+	</div>
 </div>
 
 <style>
 	/* Tämä vaikuttaa myös pelisivuun!!!! */
 	:global(body.aloitussivu-body) {
-		margin: 20px;
-		padding: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed black;
+		background-size: cover;
+		color: white;
+	}
+	.body {
+		margin: 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 		min-height: 100vh;
-		background:
-			url('img/taustakuvakokeilu.png') center / cover no-repeat,
-			black;
 		font-family: 'Jaro', sans-serif;
 		text-align: center;
 	}

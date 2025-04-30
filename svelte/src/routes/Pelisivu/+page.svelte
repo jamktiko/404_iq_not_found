@@ -1,8 +1,9 @@
 <script lang="ts">
+	import '$lib/fonts/fonts.css';
 	import { goto } from '$app/navigation';
 	import Button from '$lib/components/Button.svelte';
 	import Kysymys from '$lib/components/Kysymys.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	let sivu: 'peli' | 'lopetus' = $state('peli');
 
@@ -27,6 +28,7 @@
 	let kysymykset: Kysymys[] = $state([]);
 
 	onMount(async () => {
+		document.body.className = 'pelisivu-body';
 		const response = await fetch('/data/kysymykset.json');
 		if (!response.ok) {
 			throw new Error('Dataa ei löytynyt');
@@ -68,14 +70,13 @@
 
 {#if sivu === 'peli'}
 	<!--Pelisivu-->
-	<h1>Pelisivu</h1>
 
 	<!-- //KATSO KESKIVIIKKONA!!!!
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
    -->
 	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
-		<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
-		<p>Pisteesi: {pisteet}</p>
+		<!-- <h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
+		<p>Pisteesi: {pisteet}</p> -->
 
 		<Kysymys
 			id={valitutKysymykset[monesKysymys].id}
@@ -87,12 +88,13 @@
 			{pisteet}
 		/>
 
-		<Button otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
-		<Button otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
+		<Button vastaus={false} otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
+		<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
 	{:else if monesKysymys == valitutKysymykset.length}
+		<!-- Tämä näkyy kun lataa uudestaan sivua -->
 		<h1>Pelasit loppuun!</h1>
 		<p>haluatko pelata uudestaan??</p>
-		<Button otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
+		<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
 	{:else}
 		<h1>Loading...</h1>
 	{/if}
@@ -112,8 +114,16 @@
 	<!--Lopetussivu-->
 	<h1>Pelasit loppuun!</h1>
 	<p>haluatko pelata uudestaan??</p>
-	<Button otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
+	<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
 {/if}
 
 <style>
+	:global(body.pelisivu-body) {
+		margin: 0;
+		font-family: 'Jaro', sans-serif;
+		font-size: 25px;
+		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed;
+		background-size: cover;
+		color: white;
+	}
 </style>
