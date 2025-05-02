@@ -4,20 +4,7 @@
 	import Button from '$lib/components/Button.svelte';
 	import Kysymys from '$lib/components/Kysymys.svelte';
 	import { onMount } from 'svelte';
-	import { backInOut } from 'svelte/easing';
-
-	function liikuSivuttain(node: Element, { duration = 500 } = {}) {
-		const style = getComputedStyle(node);
-		const width = parseFloat(style.width);
-		return {
-			duration,
-			easing: backInOut,
-			css: (t: number, u: number) => {
-				const isIntro = node.getAttribute('data-transition') === 'in';
-				const offset = isIntro ? (1 - t) * width : -u * width;
-			}
-		};
-	}
+	import { fly } from 'svelte/transition';
 
 	let sivu: 'peli' | 'lopetus' = $state('peli');
 
@@ -90,14 +77,20 @@
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
    -->
 	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
-		<div class="animation">
-			<div class="moneskysymys">
-				<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
-			</div>
-			<div class="pisteet">
-				<p>Pisteesi: {pisteet}</p>
-			</div>
+		<div
+			class="moneskysymys"
+			in:fly={{ x: 300, duration: 1000 }}
+			out:fly={{ x: -300, duration: 1000 }}
+		>
+			<h2 in:fly={{ x: 300, duration: 1000 }} out:fly={{ x: -300, duration: 1000 }}>
+				Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}
+			</h2>
+		</div>
+		<div class="pisteet" in:fly={{ x: 300, duration: 1000 }} out:fly={{ x: -300, duration: 1000 }}>
+			<p>Pisteesi: {pisteet}</p>
+		</div>
 
+		<div in:fly={{ x: 1000, duration: 800 }} out:fly={{ x: -1000, duration: 800 }}>
 			<Kysymys
 				img={valitutKysymykset[monesKysymys].img}
 				kysymys={valitutKysymykset[monesKysymys].question}

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from './Button.svelte';
+	import { fly } from 'svelte/transition';
 	interface Props {
 		img: string;
 		kysymys: string;
@@ -32,16 +33,18 @@
 		}
 
 		console.log('väärin');
-		return setTimeout(() => {
-			monesKysymys++;
-		}, 1000);
+		monesKysymys++;
 	}
 </script>
 
-<div class="container">
-	<div class="code-block"><img src={img} alt="Koodi" /></div>
+<div class="container" in:fly={{ x: 1000, duration: 800 }} out:fly={{ x: -1000, duration: 800 }}>
+	<div class="code-block" in:fly={{ x: 1000, duration: 800 }} out:fly={{ x: -1000, duration: 800 }}>
+		<img src={img} alt="Koodi" />
+	</div>
 
-	<div class="question">{kysymys}</div>
+	<div class="question" in:fly={{ x: 1000, duration: 800 }} out:fly={{ x: -1000, duration: 800 }}>
+		{kysymys}
+	</div>
 
 	{#if vastaukset}
 		{#each vastaukset as vastaus}

@@ -5,34 +5,36 @@
 	import { onMount } from 'svelte';
 
 	import { backInOut } from 'svelte/easing';
+	import { fade, fly } from 'svelte/transition';
 
 	let visible = true;
 
+	//Ai teki tämän!!!
 	// Custom slide transition: right on enter, left on leave
-	function slideHorizontal(node: Element, { duration = 500 } = {}) {
-		const style = getComputedStyle(node);
-		const width = parseFloat(style.width);
+	// function slideHorizontal(node: Element, { duration = 500 } = {}) {
+	// 	const style = getComputedStyle(node);
+	// 	const width = parseFloat(style.width);
 
-		return {
-			duration,
-			easing: backInOut,
-			css: (t: number, u: number) => {
-				// t: progress (0 → 1) for intro
-				// u = 1 - t: progress for outro
-				// Enter: translateX(100%) → 0
-				// Leave: translateX(0) → -100%
-				const isIntro = node.getAttribute('data-transition') === 'in';
-				const offset = isIntro
-					? (1 - t) * width // right to center
-					: -u * width; // center to left
+	// 	return {
+	// 		duration,
+	// 		easing: backInOut,
+	// 		css: (t: number, u: number) => {
+	// 			// t: progress (0 → 1) for intro
+	// 			// u = 1 - t: progress for outro
+	// 			// Enter: translateX(100%) → 0
+	// 			// Leave: translateX(0) → -100%
+	// 			const isIntro = node.getAttribute('data-transition') === 'in';
+	// 			const offset = isIntro
+	// 				? (1 - t) * width // right to center
+	// 				: -u * width; // center to left
 
-				return `
-        transform: translateX(${offset}px);
-        opacity: ${t};
-      `;
-			}
-		};
-	}
+	// 			return `
+	//       transform: translateX(${offset}px);
+	//       opacity: ${t};
+	//     `;
+	// 		}
+	// 	};
+	// }
 
 	onMount(() => {
 		document.body.className = 'aloitussivu-body';
@@ -43,8 +45,8 @@
 
 <!--teemavalitsin, montakysymystä, ns asetukset-->
 
-<button on:click={() => (visible = !visible)}> Toggle Question </button>
-
+<!-- Ai teki -->
+<!-- <button onclick={() => (visible = !visible)}> Toggle Question </button>
 {#if visible}
 	<div
 		transition:slideHorizontal
@@ -53,7 +55,7 @@
 	>
 		Question Component
 	</div>
-{/if}
+{/if} -->
 
 <!--Aloitussivu-->
 <div class="body">
