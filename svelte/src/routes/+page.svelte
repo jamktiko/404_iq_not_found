@@ -4,6 +4,36 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 
+	import { backInOut } from 'svelte/easing';
+
+	let visible = true;
+
+	// Custom slide transition: right on enter, left on leave
+	function slideHorizontal(node: Element, { duration = 500 } = {}) {
+		const style = getComputedStyle(node);
+		const width = parseFloat(style.width);
+
+		return {
+			duration,
+			easing: backInOut,
+			css: (t: number, u: number) => {
+				// t: progress (0 → 1) for intro
+				// u = 1 - t: progress for outro
+				// Enter: translateX(100%) → 0
+				// Leave: translateX(0) → -100%
+				const isIntro = node.getAttribute('data-transition') === 'in';
+				const offset = isIntro
+					? (1 - t) * width // right to center
+					: -u * width; // center to left
+
+				return `
+        transform: translateX(${offset}px);
+        opacity: ${t};
+      `;
+			}
+		};
+	}
+
 	onMount(() => {
 		document.body.className = 'aloitussivu-body';
 	});
@@ -12,6 +42,18 @@
 </script>
 
 <!--teemavalitsin, montakysymystä, ns asetukset-->
+
+<button on:click={() => (visible = !visible)}> Toggle Question </button>
+
+{#if visible}
+	<div
+		transition:slideHorizontal
+		data-transition="in"
+		style="width: 300px; height: 200px; background: lightblue; border: 1px solid;"
+	>
+		Question Component
+	</div>
+{/if}
 
 <!--Aloitussivu-->
 <div class="body">

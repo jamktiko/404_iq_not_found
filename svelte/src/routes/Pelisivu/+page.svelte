@@ -4,6 +4,20 @@
 	import Button from '$lib/components/Button.svelte';
 	import Kysymys from '$lib/components/Kysymys.svelte';
 	import { onMount } from 'svelte';
+	import { backInOut } from 'svelte/easing';
+
+	function liikuSivuttain(node: Element, { duration = 500 } = {}) {
+		const style = getComputedStyle(node);
+		const width = parseFloat(style.width);
+		return {
+			duration,
+			easing: backInOut,
+			css: (t: number, u: number) => {
+				const isIntro = node.getAttribute('data-transition') === 'in';
+				const offset = isIntro ? (1 - t) * width : -u * width;
+			}
+		};
+	}
 
 	let sivu: 'peli' | 'lopetus' = $state('peli');
 
@@ -76,21 +90,23 @@
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
    -->
 	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
-		<div class="moneskysymys">
-			<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
-		</div>
-		<div class="pisteet">
-			<p>Pisteesi: {pisteet}</p>
-		</div>
+		<div class="animation">
+			<div class="moneskysymys">
+				<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
+			</div>
+			<div class="pisteet">
+				<p>Pisteesi: {pisteet}</p>
+			</div>
 
-		<Kysymys
-			img={valitutKysymykset[monesKysymys].img}
-			kysymys={valitutKysymykset[monesKysymys].question}
-			vastaukset={valitutKysymykset[monesKysymys].vastaukset}
-			oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
-			bind:monesKysymys
-			bind:pisteet
-		/>
+			<Kysymys
+				img={valitutKysymykset[monesKysymys].img}
+				kysymys={valitutKysymykset[monesKysymys].question}
+				vastaukset={valitutKysymykset[monesKysymys].vastaukset}
+				oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
+				bind:monesKysymys
+				bind:pisteet
+			/>
+		</div>
 
 		<Button vastaus={false} otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
 		<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
