@@ -28,6 +28,7 @@
 <style>
 	/* Tämä vaikuttaa myös pelisivuun!!!! */
 	:global(body.aloitussivu-body) {
+		overflow-x: hidden;
 		display: flex;
 		justify-content: center;
 		align-items: center;
