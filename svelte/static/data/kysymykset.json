@@ -1,0 +1,127 @@
+[
+  {
+    "id": "1",
+    "img": "ss/_q1.png",
+    "kysymys": "Mitä konsoliin tulostuu?",
+    "vastaukset": [
+      "Koodi ei tulosta mitään",
+      "Koodi tulostaa 'He he... funny...'",
+      "Koodi tulostaa 'It's a number'",
+      "Koodi tulostaa '68'"
+    ],
+    "oikeaVastaus": "Koodi tulostaa 'It's a number'",
+    "vaikeustaso": ""
+  },
+  {
+    "id": "2",
+    "img": "ss/_q2.png",
+    "kysymys": "Mitä konsoliin tulostuu?",
+    "vastaukset": [
+      "Koodi tulostaa 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai'",
+      "Koodi tulostaa -1, 0, 1, 2, 3",
+      "Koodi tulostaa 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai'",
+      "Koodi ei tulosta mitään"
+    ],
+    "oikeaVastaus": "Koodi tulostaa 'Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai'",
+    "vaikeustaso": ""
+  },
+  {
+    "id": "3",
+    "img": "ss/_q3.png",
+    "kysymys": "Mitä x:n tilalle pitää kirjoittaa, jotta koira objektin nimi tulostuu?",
+    "vastaukset": [
+      "this.nimi",
+      "Jättää sen x:n, se toimii",
+      "'Jungleri'",
+      "nimi"
+    ],
+    "oikeaVastaus": "this.nimi",
+    "vaikeustaso": ""
+  },
+  {
+    "id": "4",
+    "img": "ss/_q4.png",
+    "kysymys": "Mitä seuraava koodi tulostaa?",
+    "vastaukset": [
+      "Koodi ei tulosta mitään",
+      "Koodi tulostaa 'Hello World'",
+      "Koodi tulostaa 'HelloWorld'",
+      "Koodi tulostaa 'a, b'"
+    ],
+    "oikeaVastaus": "Koodi ei tulosta mitään",
+    "vaikeustaso": ""
+  },
+  {
+    "id": "5",
+    "img": "ss/_q5.png",
+    "kysymys": "Mitä seuraava koodi tulostaa?",
+    "vastaukset": [
+      "Parhaan biisin kertsin ikinä",
+      "'gonna give u up Never gonna let u down'",
+      "'Never gonna give u up'",
+      "ei oo hauska meme"
+    ],
+    "oikeaVastaus": "Parhaan biisin kertsin ikinä",
+    "vaikeustaso": ""
+  },
+  {
+    "id": "6",
+    "img": "ss/_q6.png",
+    "kysymys": "yippee() tulostaa, mutta notYippee() ei tulosta. Miksi??",
+    "vastaukset": [
+      "Yippee!",
+      "notYippee() ei ole määritelty ennen sen kutsumista",
+      "notYippee() ei ole funktio",
+      "Kylläpäs molemmat funktiot tulostaa!"
+    ],
+    "oikeaVastaus": "notYippee() ei ole määritelty ennen sen kutsumista",
+    "vaikeustaso": ""
+  },
+  {
+    "id": "7",
+    "img": "ss/_q7.png",
+    "kysymys": "Mitä seuraava koodi tulostaa?",
+    "vastaukset": [
+      "Koodi tulostaa 'summa'",
+      "Koodi tulostaa 'ue'",
+      "Koodi ei tulosta mitään",
+      "Koodi tulostaa '9'"
+    ],
+    "oikeaVastaus": "Koodi tulostaa '9'",
+    "vaikeustaso": ""
+  },
+  {
+    "id": "8",
+    "img": "ss/_q8.png",
+    "kysymys": "Mitä seuraava koodi tulostaa?",
+    "vastaukset": [
+      "Koodi tulostaa 'Kissa', 'Koira', 'Kilpikonna'",
+      "Koodi tulostaa 'Kissa', 'Koira'",
+      "Koodi ei tulosta mitään",
+      "Koodi tulostaa 'Koira'"
+    ],
+    "oikeaVastaus": "Koodi tulostaa 'Kissa', 'Koira', 'Kilpikonna'",
+    "vaikeustaso": ""
+  },
+  {
+    "id": "9",
+    "img": "ss/_q9.png",
+    "kysymys": "Mikä on vikana tässä koodissa?",
+    "vastaukset": [
+      "Const sijalla pitäisi olla var",
+      "Koodi tulostaa normaalisti, konsoliin tulostuu '4'",
+      "Const muuttujien arvoa ei voi muuttaa jälkikäteen, jos se on jo esitelty",
+      "Const muuttujia ei voi muuttaa jälkikäteen"
+    ],
+    "oikeaVastaus": "Koodi tulostaa 'Kissa', 'Koira', 'Kilpikonna'",
+    "vaikeustaso": ""
+  },
+  {
+    "id": "10",
+    "img": "ss/_q10.png",
+    "kysymys": "Mitä pitää kirjoittaa tyhjän kohdan tilalle, että tulostuisi 1, 2, 3, 4, 5, 7",
+    "vastaukset": ["filter", "pop", "concat", "push"],
+    "oikeaVastaus": "push",
+    "vaikeustaso": ""
+  }
+]

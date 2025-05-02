@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: 'Jaro', sans-serif;
+  font-size: 25px;
+  background: url(taustakuva.png) no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.container {
+  max-width: 600px;
+  margin: 100px auto;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.question {
+  font-size: 24px;
+  background: white;
+  color: black;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  background: black;
+  color: white;
+  font-family: 'Jaro';
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 15px;
+  font-size: 25px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: #444;
+}
+
+.code-block {
+  background: #ffffffaa;
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
