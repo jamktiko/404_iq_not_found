@@ -4,37 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 
-	import { backInOut } from 'svelte/easing';
-	import { fade, fly } from 'svelte/transition';
-
-	let visible = true;
-
-	//Ai teki tämän!!!
-	// Custom slide transition: right on enter, left on leave
-	// function slideHorizontal(node: Element, { duration = 500 } = {}) {
-	// 	const style = getComputedStyle(node);
-	// 	const width = parseFloat(style.width);
-
-	// 	return {
-	// 		duration,
-	// 		easing: backInOut,
-	// 		css: (t: number, u: number) => {
-	// 			// t: progress (0 → 1) for intro
-	// 			// u = 1 - t: progress for outro
-	// 			// Enter: translateX(100%) → 0
-	// 			// Leave: translateX(0) → -100%
-	// 			const isIntro = node.getAttribute('data-transition') === 'in';
-	// 			const offset = isIntro
-	// 				? (1 - t) * width // right to center
-	// 				: -u * width; // center to left
-
-	// 			return `
-	//       transform: translateX(${offset}px);
-	//       opacity: ${t};
-	//     `;
-	// 		}
-	// 	};
-	// }
+	import { fly } from 'svelte/transition';
 
 	onMount(() => {
 		document.body.className = 'aloitussivu-body';
@@ -45,20 +15,8 @@
 
 <!--teemavalitsin, montakysymystä, ns asetukset-->
 
-<!-- Ai teki -->
-<!-- <button onclick={() => (visible = !visible)}> Toggle Question </button>
-{#if visible}
-	<div
-		transition:slideHorizontal
-		data-transition="in"
-		style="width: 300px; height: 200px; background: lightblue; border: 1px solid;"
-	>
-		Question Component
-	</div>
-{/if} -->
-
 <!--Aloitussivu-->
-<div class="body">
+<div class="body" out:fly={{ x: -1000, duration: 800, delay: 500 }}>
 	<div class="info">i</div>
 	<div>
 		<h2>404</h2>

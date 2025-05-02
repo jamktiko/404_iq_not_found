@@ -5,28 +5,19 @@
 	import Kysymys from '$lib/components/Kysymys.svelte';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import type { IKysymys } from '$lib/types/kysymys.d.ts';
 
 	let sivu: 'peli' | 'lopetus' = $state('peli');
 
 	//tämän tarkoitus olisi pitää yllä monennessako alkiossa mennään valitutKysymykset taulukossa
 	//Toisin sanoen auttaisi menemään läpi kaikki kysymykset
 	//Voidaan käyttää myös muihin ominaisuuksiin tarvittaessa
-	let monesKysymys: number = $state(0);
+	let monesKysymys: number = $state(1);
 
 	//Pistelaskuri - oma komponentti?
 	let pisteet: number = $state(0);
 
-	//Kysymyksien haku
-	interface Kysymys {
-		id: number;
-		img: string;
-		question: string;
-		vastaukset?: string[] | null;
-		oikeaVastaus: string;
-		vaikeustaso: string;
-	}
-
-	let kysymykset: Kysymys[] = $state([]);
+	let kysymykset: IKysymys[] = $state([]);
 
 	// vaihda oikeeseen json tiedostoon ja tee muokkaukset sen mukaan
 	onMount(async () => {
@@ -40,9 +31,9 @@
 	});
 
 	//randomit kysymykset
-	let valitutKysymykset: Kysymys[] = $state([]);
+	let valitutKysymykset: IKysymys[] = $state([]);
 
-	function randomKysymykset(taulukko: Kysymys[]) {
+	function randomKysymykset(taulukko: IKysymys[]) {
 		//Tämä määrää, montako kysymystä halutaan
 		const montaKysymysta = 10;
 		//Virheen tarkistus tähän
@@ -51,7 +42,7 @@
 		}
 		while (valitutKysymykset.length < montaKysymysta) {
 			//Tähän muuttujaan tallennetaan hetkellisesti kysymys
-			let a: Kysymys;
+			let a: IKysymys;
 
 			//random numero 0-taulukonpituus
 			//virheen tarkistus?
@@ -79,29 +70,44 @@
 	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
 		<div
 			class="moneskysymys"
-			in:fly={{ x: 300, duration: 1000 }}
-			out:fly={{ x: -300, duration: 1000 }}
+			in:fly={{ x: 300, duration: 1000, delay: 1500 }}
+			out:fly={{ x: -300, duration: 1000, delay: 1300 }}
 		>
-			<h2 in:fly={{ x: 300, duration: 1000 }} out:fly={{ x: -300, duration: 1000 }}>
-				Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}
+			<h2
+				in:fly={{ x: 300, duration: 1000, delay: 1500 }}
+				out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+			>
+				Kysymys: {monesKysymys} / {valitutKysymykset.length}
 			</h2>
 		</div>
-		<div class="pisteet" in:fly={{ x: 300, duration: 1000 }} out:fly={{ x: -300, duration: 1000 }}>
+		<div
+			class="pisteet"
+			in:fly={{ x: 300, duration: 1000, delay: 1500 }}
+			out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+		>
 			<p>Pisteesi: {pisteet}</p>
 		</div>
 
-		<div in:fly={{ x: 1000, duration: 800 }} out:fly={{ x: -1000, duration: 800 }}>
-			<Kysymys
-				img={valitutKysymykset[monesKysymys].img}
-				kysymys={valitutKysymykset[monesKysymys].question}
-				vastaukset={valitutKysymykset[monesKysymys].vastaukset}
-				oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
-				bind:monesKysymys
-				bind:pisteet
-			/>
+		<div
+			in:fly={{ x: 500, duration: 1000, delay: 2000 }}
+			out:fly={{ x: -500, duration: 1000, delay: 800 }}
+		>
+			{#key monesKysymys}
+				<div
+					in:fly={{ x: 500, duration: 1000, delay: 1000 }}
+					out:fly={{ x: -500, duration: 1000, delay: 200 }}
+				>
+					<Kysymys
+						img={valitutKysymykset[monesKysymys - 1].img}
+						kysymys={valitutKysymykset[monesKysymys - 1].question}
+						vastaukset={valitutKysymykset[monesKysymys - 1].vastaukset}
+						oikeaVastaus={valitutKysymykset[monesKysymys - 1].oikeaVastaus}
+						bind:monesKysymys
+						bind:pisteet
+					/>
+				</div>
+			{/key}
 		</div>
-
-		<Button vastaus={false} otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
 		<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
 	{:else if monesKysymys == valitutKysymykset.length}
 		<!-- Tämä näkyy kun lataa uudestaan sivua -->
