@@ -3,7 +3,7 @@
 	import { goto } from '$app/navigation';
 	import Button from '$lib/components/Button.svelte';
 	import Kysymys from '$lib/components/Kysymys.svelte';
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 
 	let sivu: 'peli' | 'lopetus' = $state('peli');
 
@@ -17,9 +17,9 @@
 
 	//Kysymyksien haku
 	interface Kysymys {
-		id: string;
+		id: number;
 		img: string;
-		kysymys: string;
+		question: string;
 		vastaukset?: string[] | null;
 		oikeaVastaus: string;
 		vaikeustaso: string;
@@ -30,7 +30,7 @@
 	// vaihda oikeeseen json tiedostoon ja tee muokkaukset sen mukaan
 	onMount(async () => {
 		document.body.className = 'pelisivu-body';
-		const response = await fetch('/data/kysymykset.json');
+		const response = await fetch('/data/kysymykset_full.json');
 		if (!response.ok) {
 			throw new Error('Dataa ei löytynyt');
 		}
@@ -43,7 +43,7 @@
 
 	function randomKysymykset(taulukko: Kysymys[]) {
 		//Tämä määrää, montako kysymystä halutaan
-		const montaKysymysta = 5;
+		const montaKysymysta = 10;
 		//Virheen tarkistus tähän
 		if (taulukko.length < montaKysymysta) {
 			throw new Error('Dataa ei ole tarpeeksi');
@@ -85,7 +85,7 @@
 
 		<Kysymys
 			img={valitutKysymykset[monesKysymys].img}
-			kysymys={valitutKysymykset[monesKysymys].kysymys}
+			kysymys={valitutKysymykset[monesKysymys].question}
 			vastaukset={valitutKysymykset[monesKysymys].vastaukset}
 			oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
 			bind:monesKysymys
