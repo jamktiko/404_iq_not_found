@@ -127,7 +127,7 @@
 		"id": 13,
 		"img": "ss/_q13.png",
 		"question": "Tarkastele seuraavaa JavaScript-koodia. Mitä konsoliin tulostuu, kun se suoritetaan?",
-		"vastaus": ["0 1", "1 1", "1 2", "2 2", "Koodi aiheuttaa virheen"],
+		"vastaukset": ["0 1", "1 1", "1 2", "2 2", "Koodi aiheuttaa virheen"],
 		"oikeaVastaus": "C) 1 2"
 	},
 	{
