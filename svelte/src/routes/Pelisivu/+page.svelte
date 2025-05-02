@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '$lib/fonts/fonts.css';
-	import { goto } from '$app/navigation';
 	import Button from '$lib/components/Button.svelte';
 	import Kysymys from '$lib/components/Kysymys.svelte';
+	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import type { IKysymys } from '$lib/types/kysymys.d.ts';
@@ -138,6 +138,7 @@
 
 <style>
 	:global(body.pelisivu-body) {
+		overflow-x: hidden;
 		margin: 0;
 		font-family: 'Jaro', sans-serif;
 		font-size: 25px;
