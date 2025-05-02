@@ -61,64 +61,64 @@
 	}
 </script>
 
-{#if sivu === 'peli'}
-	<!--Pelisivu-->
+<!-- {#if sivu === 'peli'} -->
+<!--Pelisivu-->
 
-	<!-- //KATSO KESKIVIIKKONA!!!!
+<!-- //KATSO KESKIVIIKKONA!!!!
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
    -->
-	{#if valitutKysymykset.length > 0 && monesKysymys - 1 < valitutKysymykset.length}
-		<div
-			class="moneskysymys"
+{#if valitutKysymykset.length > 0 && monesKysymys - 1 < valitutKysymykset.length}
+	<div
+		class="moneskysymys"
+		in:fly={{ x: 300, duration: 1000, delay: 1500 }}
+		out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+	>
+		<h2
 			in:fly={{ x: 300, duration: 1000, delay: 1500 }}
 			out:fly={{ x: -300, duration: 1000, delay: 1300 }}
 		>
-			<h2
-				in:fly={{ x: 300, duration: 1000, delay: 1500 }}
-				out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+			Kysymys: {monesKysymys} / {valitutKysymykset.length}
+		</h2>
+	</div>
+	<div
+		class="pisteet"
+		in:fly={{ x: 300, duration: 1000, delay: 1500 }}
+		out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+	>
+		<p>Pisteesi: {pisteet}</p>
+	</div>
+
+	<div
+		in:fly={{ x: 500, duration: 1000, delay: 2000 }}
+		out:fly={{ x: -500, duration: 1000, delay: 800 }}
+	>
+		{#key monesKysymys}
+			<div
+				in:fly={{ x: 500, duration: 1000, delay: 1000 }}
+				out:fly={{ x: -500, duration: 1000, delay: 200 }}
 			>
-				Kysymys: {monesKysymys} / {valitutKysymykset.length}
-			</h2>
-		</div>
-		<div
-			class="pisteet"
-			in:fly={{ x: 300, duration: 1000, delay: 1500 }}
-			out:fly={{ x: -300, duration: 1000, delay: 1300 }}
-		>
-			<p>Pisteesi: {pisteet}</p>
-		</div>
+				<Kysymys
+					img={valitutKysymykset[monesKysymys - 1].img}
+					kysymys={valitutKysymykset[monesKysymys - 1].question}
+					vastaukset={valitutKysymykset[monesKysymys - 1].vastaukset}
+					oikeaVastaus={valitutKysymykset[monesKysymys - 1].oikeaVastaus}
+					bind:monesKysymys
+					bind:pisteet
+				/>
+			</div>
+		{/key}
+	</div>
+	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
+{:else if monesKysymys == valitutKysymykset.length + 1}
+	<!-- Tämä näkyy kun lataa uudestaan sivua -->
+	<h1>Pelasit loppuun!</h1>
+	<p>haluatko pelata uudestaan??</p>
+	<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
+{:else}
+	<h1>Loading...</h1>
+{/if}
 
-		<div
-			in:fly={{ x: 500, duration: 1000, delay: 2000 }}
-			out:fly={{ x: -500, duration: 1000, delay: 800 }}
-		>
-			{#key monesKysymys}
-				<div
-					in:fly={{ x: 500, duration: 1000, delay: 1000 }}
-					out:fly={{ x: -500, duration: 1000, delay: 200 }}
-				>
-					<Kysymys
-						img={valitutKysymykset[monesKysymys - 1].img}
-						kysymys={valitutKysymykset[monesKysymys - 1].question}
-						vastaukset={valitutKysymykset[monesKysymys - 1].vastaukset}
-						oikeaVastaus={valitutKysymykset[monesKysymys - 1].oikeaVastaus}
-						bind:monesKysymys
-						bind:pisteet
-					/>
-				</div>
-			{/key}
-		</div>
-		<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
-	{:else if monesKysymys == valitutKysymykset.length + 1}
-		<!-- Tämä näkyy kun lataa uudestaan sivua -->
-		<h1>Pelasit loppuun!</h1>
-		<p>haluatko pelata uudestaan??</p>
-		<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
-	{:else}
-		<h1>Loading...</h1>
-	{/if}
-
-	<!-- {#each valitutKysymykset as kysymys}
+<!-- {#each valitutKysymykset as kysymys}
 		<Kysymys
 			id={kysymys.id}
 			img={kysymys.img}
@@ -129,12 +129,12 @@
 	{:else}
 		<h1>Loading...</h1>
 	{/each} -->
-{:else if sivu === 'lopetus'}
-	<!--Lopetussivu-->
-	<h1>Pelasit loppuun!</h1>
+<!-- {:else if sivu === 'lopetus'} -->
+<!--Lopetussivu-->
+<!-- <h1>Pelasit loppuun!</h1>
 	<p>haluatko pelata uudestaan??</p>
 	<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
-{/if}
+{/if} -->
 
 <style>
 	:global(body.pelisivu-body) {
@@ -162,5 +162,44 @@
 		width: 80px;
 		height: 50px;
 		font-size: smaller;
+	}
+	.overlay {
+		position: relative;
+		width: 100vw;
+		height: 100vh;
+		backdrop-filter: blur(4px);
+		display: flex;
+		font-family: 'Jaro';
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		transform: translateY(15vh);
+	}
+	.center-box {
+		background-color: #000;
+		padding: 3rem;
+		border-radius: 10px;
+		border: 6px solid #ccc;
+		margin-bottom: 1rem;
+		width: 350px;
+	}
+	.center-box .viesti {
+		font-weight: bold;
+		font-size: 1.5rem;
+		padding-bottom: 40px;
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+	.center-box .pisteet {
+		font-weight: bold;
+		font-size: 1.5rem;
+		text-align: center;
+	}
+
+	@media (max-width: 600px) {
+		.center-box {
+			width: 80%;
+			padding: 1.5rem;
+		}
 	}
 </style>
