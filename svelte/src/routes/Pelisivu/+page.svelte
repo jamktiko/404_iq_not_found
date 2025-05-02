@@ -35,7 +35,7 @@
 
 	function randomKysymykset(taulukko: IKysymys[]) {
 		//Tämä määrää, montako kysymystä halutaan
-		const montaKysymysta = 10;
+		const montaKysymysta = 2;
 		//Virheen tarkistus tähän
 		if (taulukko.length < montaKysymysta) {
 			throw new Error('Dataa ei ole tarpeeksi');
@@ -109,11 +109,20 @@
 		{/key}
 	</div>
 	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
-{:else if monesKysymys == valitutKysymykset.length + 1}
+{:else if monesKysymys - 1 == valitutKysymykset.length}
 	<!-- Tämä näkyy kun lataa uudestaan sivua -->
-	<h1>Pelasit loppuun!</h1>
-	<p>haluatko pelata uudestaan??</p>
-	<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
+
+	<div
+		class="overlay"
+		in:fly={{ x: 300, duration: 1000, delay: 2400 }}
+		out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+	>
+		<div class="center-box">
+			<p class="viesti">Onnea, pääsit pelin loppuun!</p>
+			<p class="pisteet">Pisteet: <span id="pisteet">{pisteet}</span></p>
+		</div>
+		<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
+	</div>
 {:else}
 	<h1>Loading...</h1>
 {/if}

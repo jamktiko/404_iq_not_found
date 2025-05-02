@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Button from './Button.svelte';
-	import { fly } from 'svelte/transition';
 	interface Props {
 		img: string;
 		kysymys: string;
