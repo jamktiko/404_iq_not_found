@@ -69,41 +69,46 @@
 	}
 </script>
 
-{#if sivu === 'peli'}
-	<!--Pelisivu-->
+<!-- {#if sivu === 'peli'} -->
+<!--Pelisivu-->
 
-	<!-- //KATSO KESKIVIIKKONA!!!!
+<!-- //KATSO KESKIVIIKKONA!!!!
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
    -->
-	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
-		<div class="moneskysymys">
-			<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
-		</div>
-		<div class="pisteet">
-			<p>Pisteesi: {pisteet}</p>
-		</div>
+{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
+	<div class="moneskysymys">
+		<h2>Kysymys: {monesKysymys + 1} / {valitutKysymykset.length}</h2>
+	</div>
+	<div class="pisteet">
+		<p>Pisteesi: {pisteet}</p>
+	</div>
 
-		<Kysymys
-			img={valitutKysymykset[monesKysymys].img}
-			kysymys={valitutKysymykset[monesKysymys].question}
-			vastaukset={valitutKysymykset[monesKysymys].vastaukset}
-			oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
-			bind:monesKysymys
-			bind:pisteet
-		/>
+	<Kysymys
+		img={valitutKysymykset[monesKysymys].img}
+		kysymys={valitutKysymykset[monesKysymys].question}
+		vastaukset={valitutKysymykset[monesKysymys].vastaukset}
+		oikeaVastaus={valitutKysymykset[monesKysymys].oikeaVastaus}
+		bind:monesKysymys
+		bind:pisteet
+	/>
 
-		<Button vastaus={false} otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
-		<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
-	{:else if monesKysymys == valitutKysymykset.length}
-		<!-- Tämä näkyy kun lataa uudestaan sivua -->
-		<h1>Pelasit loppuun!</h1>
-		<p>haluatko pelata uudestaan??</p>
+	<Button vastaus={false} otsikko="seuraava" disabled={false} onclick={() => monesKysymys++} />
+	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
+{:else if monesKysymys == valitutKysymykset.length}
+	<!-- Tämä näkyy kun lataa uudestaan sivua -->
+
+	<div class="overlay">
+		<div class="center-box">
+			<p class="viesti">Onnea, pääsit pelin loppuun!</p>
+			<p class="pisteet">Pisteet: <span id="pisteet">10</span></p>
+		</div>
 		<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
-	{:else}
-		<h1>Loading...</h1>
-	{/if}
+	</div>
+{:else}
+	<h1>Loading...</h1>
+{/if}
 
-	<!-- {#each valitutKysymykset as kysymys}
+<!-- {#each valitutKysymykset as kysymys}
 		<Kysymys
 			id={kysymys.id}
 			img={kysymys.img}
@@ -114,12 +119,12 @@
 	{:else}
 		<h1>Loading...</h1>
 	{/each} -->
-{:else if sivu === 'lopetus'}
-	<!--Lopetussivu-->
-	<h1>Pelasit loppuun!</h1>
+<!-- {:else if sivu === 'lopetus'} -->
+<!--Lopetussivu-->
+<!-- <h1>Pelasit loppuun!</h1>
 	<p>haluatko pelata uudestaan??</p>
 	<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
-{/if}
+{/if} -->
 
 <style>
 	:global(body.pelisivu-body) {
