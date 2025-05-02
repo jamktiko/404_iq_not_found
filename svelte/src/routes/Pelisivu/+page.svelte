@@ -84,7 +84,6 @@
 		</div>
 
 		<Kysymys
-			id={valitutKysymykset[monesKysymys].id}
 			img={valitutKysymykset[monesKysymys].img}
 			kysymys={valitutKysymykset[monesKysymys].kysymys}
 			vastaukset={valitutKysymykset[monesKysymys].vastaukset}

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Button from './Button.svelte';
 	interface Props {
-		id: string;
 		img: string;
 		kysymys: string;
 		vastaukset?: string[] | null;
@@ -11,7 +10,6 @@
 	}
 
 	let {
-		id,
 		img,
 		kysymys,
 		vastaukset,
