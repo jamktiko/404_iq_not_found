@@ -67,7 +67,7 @@
 	<!-- //KATSO KESKIVIIKKONA!!!!
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
    -->
-	{#if valitutKysymykset.length > 0 && monesKysymys < valitutKysymykset.length}
+	{#if valitutKysymykset.length > 0 && monesKysymys - 1 < valitutKysymykset.length}
 		<div
 			class="moneskysymys"
 			in:fly={{ x: 300, duration: 1000, delay: 1500 }}
@@ -109,7 +109,7 @@
 			{/key}
 		</div>
 		<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
-	{:else if monesKysymys == valitutKysymykset.length}
+	{:else if monesKysymys == valitutKysymykset.length + 1}
 		<!-- Tämä näkyy kun lataa uudestaan sivua -->
 		<h1>Pelasit loppuun!</h1>
 		<p>haluatko pelata uudestaan??</p>
@@ -158,7 +158,7 @@
 		position: absolute;
 		top: 10px;
 		left: 100px;
-		width: 70px;
+		width: 80px;
 		height: 50px;
 		font-size: smaller;
 	}
