@@ -56,7 +56,7 @@
 
 <style>
 	.question {
-		font-size: 24px;
+		font-size: 18px;
 		background: white;
 		color: black;
 		padding: 18px;
@@ -64,8 +64,13 @@
 		border-radius: 10px;
 		text-align: center;
 		width: 600px;
+		height: 40px;
 		margin-left: auto;
 		margin-right: auto;
+		display: flex;
+   justify-content: center;  
+   align-items: center;       
+   text-align: center; 
 	}
 
 	.code-block {
