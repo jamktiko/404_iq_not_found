@@ -95,8 +95,8 @@
 	>
 		{#key monesKysymys}
 			<div
-				in:fly={{ x: 500, duration: 1000, delay: 1000 }}
-				out:fly={{ x: -500, duration: 1000, delay: 200 }}
+				in:fly={{ x: 500, duration: 1000, delay: 1300 }}
+				out:fly={{ x: -500, duration: 1000, delay: 500 }}
 			>
 				<Kysymys
 					img={valitutKysymykset[monesKysymys - 1].img}
@@ -116,7 +116,7 @@
 	<div
 		class="overlay"
 		in:fly={{ x: 300, duration: 1000, delay: 2400 }}
-		out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+		out:fly={{ x: -300, duration: 1000, delay: 200 }}
 	>
 		<div class="center-box">
 			<p class="viesti">Onnea, pääsit pelin loppuun!</p>
