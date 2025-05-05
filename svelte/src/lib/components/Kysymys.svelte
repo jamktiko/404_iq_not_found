@@ -59,26 +59,32 @@
 		font-size: 24px;
 		background: white;
 		color: black;
-		padding: 15px;
-		margin-bottom: 20px;
+		padding: 18px;
+		margin-bottom: 10px;
 		border-radius: 10px;
 		text-align: center;
-		max-width: 700px;
-		max-width: fit-content;
+		width: 600px;
 		margin-left: auto;
 		margin-right: auto;
 	}
 
 	.code-block {
 		background: #ffffffaa;
-		height: fit-content;
-		margin-bottom: 20px;
+		width: 700px;
+		height: 150px;
+		margin-bottom: 10px;
 		border-radius: 10px;
 	}
 	.container {
-		max-width: 900px;
-		margin: 100px auto;
+		max-width: 700px;
+		margin: 5px auto;
 		border-radius: 20px;
 		padding: 20px;
 	}
+	img {
+		width: 700px;
+		height: 150px;
+		object-fit: initial;
+	}
+
 </style>

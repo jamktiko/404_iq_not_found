@@ -42,13 +42,17 @@
 		background: black;
 		color: white;
 		font-family: 'Jaro';
-		border: 2px solid white;
+		border: 3px solid white;
 		border-radius: 30px;
-		padding: 15px;
+		padding: 10px;
+		margin: 1px 0;
 		font-size: 25px;
-		margin: 10px 0;
 		cursor: pointer;
 		transition: background 0.3s;
+	}
+	.eiVastaus {
+		align-items: center;
+		
 	}
 
 	.vastaus:hover {

@@ -151,7 +151,7 @@
 		overflow-x: hidden;
 		margin: 0;
 		font-family: 'Jaro', sans-serif;
-		font-size: 25px;
+		font-size: 20px;
 		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed;
 		background-size: cover;
 		color: white;
@@ -176,7 +176,7 @@
 	.overlay {
 		position: relative;
 		width: 100vw;
-		height: 70vh;
+		height: 100vh;
 		backdrop-filter: blur(4px);
 		display: flex;
 		font-family: 'Jaro';
@@ -191,7 +191,7 @@
 		border-radius: 10px;
 		border: 6px solid #ccc;
 		margin-bottom: 1rem;
-		width: 350px;
+		width: 150px;
 	}
 	.center-box .viesti {
 		font-weight: bold;
