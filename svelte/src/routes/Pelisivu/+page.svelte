@@ -176,7 +176,7 @@
 	.overlay {
 		position: relative;
 		width: 100vw;
-		height: 100vh;
+		height: 70vh;
 		backdrop-filter: blur(4px);
 		display: flex;
 		font-family: 'Jaro';
