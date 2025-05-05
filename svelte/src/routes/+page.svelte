@@ -33,6 +33,7 @@
 	/* Tämä vaikuttaa myös pelisivuun!!!! */
 	:global(body.aloitussivu-body) {
 		overflow-x: hidden;
+		overflow-y: hidden;
 		display: flex;
 		justify-content: center;
 		align-items: center;

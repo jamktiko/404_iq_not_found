@@ -32,10 +32,11 @@
 
 	//randomit kysymykset
 	let valitutKysymykset: IKysymys[] = $state([]);
+	//montako kysymystä halutaan
+	const montaKysymysta = 10;
 
 	function randomKysymykset(taulukko: IKysymys[]) {
 		//Tämä määrää, montako kysymystä halutaan
-		const montaKysymysta = 2;
 		//Virheen tarkistus tähän
 		if (taulukko.length < montaKysymysta) {
 			throw new Error('Dataa ei ole tarpeeksi');
@@ -109,7 +110,7 @@
 		{/key}
 	</div>
 	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
-{:else if monesKysymys - 1 == valitutKysymykset.length}
+{:else if monesKysymys - 1 == montaKysymysta}
 	<!-- Tämä näkyy kun lataa uudestaan sivua -->
 
 	<div
@@ -175,7 +176,7 @@
 	.overlay {
 		position: relative;
 		width: 100vw;
-		height: 100vh;
+		height: 70vh;
 		backdrop-filter: blur(4px);
 		display: flex;
 		font-family: 'Jaro';
