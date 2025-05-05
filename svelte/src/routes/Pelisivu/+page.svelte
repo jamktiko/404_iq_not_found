@@ -152,7 +152,7 @@
 		margin: 0;
 		font-family: 'Jaro', sans-serif;
 		font-size: 25px;
-		background: url('static/img/taustakuvakokeilu.png') no-repeat center center fixed;
+		background: url('kuva/taustakuvakokeilu.png') no-repeat center center fixed;
 		background-size: cover;
 		color: white;
 	}

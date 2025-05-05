@@ -37,7 +37,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: url('static/img/taustakuvakokeilu.png') no-repeat center center fixed black;
+		background: url('kuva/taustakuvakokeilu.png') no-repeat center center fixed black;
 		background-size: cover;
 		color: white;
 	}
