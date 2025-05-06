@@ -19,7 +19,7 @@
 
 <style>
 	.eiVastaus {
-		width: 800px;
+		width: 100%;
 		flex-shrink: 0;
 		border-radius: 25px;
 		border: 5px solid #fff;
@@ -60,4 +60,29 @@
 	.eiVastaus:hover {
 		background: #083a08;
 	}
+	@media (max-width: 900px) {
+		.eiVastaus {
+   /* width: 700px; */
+    padding: 10px;
+  }
+}
+
+@media (max-width: 820px) {
+	.eiVastaus {
+   /* width: 600px; */
+    padding: 10px;
+  }
+}
+@media (max-width: 700px) {
+  .eiVastaus {
+   /* width: 500px; */
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .eiVastaus {
+   /* width: 450px; */
+    padding: 10px;
+  }
+}
 </style>

@@ -97,4 +97,44 @@
 		text-align: center;
 		cursor: pointer;
 	}
+	@media (max-width: 900px) {
+  h1 {
+    font-size: 100px;
+  }
+  h2 {
+    font-size: 130px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 820px) {
+  h1 {
+    font-size: 90px;
+    -webkit-text-stroke: 6px #ffffff;
+  }
+  h2 {
+    font-size: 120px;
+    padding: 10px;
+  }
+}
+@media (max-width: 700px) {
+  h1 {
+    font-size: 85px;
+    -webkit-text-stroke: 5px #ffffff;
+  }
+  h2 {
+    font-size: 95px;
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 80px;
+    -webkit-text-stroke: 4px #ffffff;
+  }
+  h2 {
+    font-size: 100px;
+    padding: 10px;
+  }
+}
 </style>
