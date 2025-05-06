@@ -163,7 +163,7 @@
 		right: 100px;
 		width: 70px;
 		height: 50px;
-		font-size: smaller;
+		font-size: 24px;
 	}
 	.moneskysymys {
 		position: absolute;
@@ -171,7 +171,7 @@
 		left: 100px;
 		width: 80px;
 		height: 50px;
-		font-size: smaller;
+		font-size: 18px;
 	}
 	.overlay {
 		position: relative;
@@ -206,10 +206,23 @@
 		text-align: center;
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 1200px) {
 		.center-box {
 			width: 80%;
 			padding: 1.5rem;
 		}
-	}
+		.moneskysymys,
+  .pisteet {
+    position: relative;  
+    top: auto;
+    left: auto;
+    right: auto;
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    display: inline-block;
+    margin: 0 10px;
+  }
+		}
+
 </style>
