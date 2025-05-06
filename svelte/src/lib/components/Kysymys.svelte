@@ -57,28 +57,30 @@
 <style>
 	.question {
 		font-size: 18px;
-		background: white;
-		color: black;
-		padding: 18px;
-		margin-bottom: 10px;
-		border-radius: 10px;
-		text-align: center;
-		width: 600px;
-		height: 40px;
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-   justify-content: center;  
-   align-items: center;       
-   text-align: center; 
+  background: white;
+  color: black;
+  padding: 18px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+	max-width: 90%;        
+  width: 100%;            
+  box-sizing: border-box; 
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	height: auto;
+
 	}
 
 	.code-block {
 		background: #201f1faa;
-		width: 700px;
+		max-width: 700px;
 		height: 150px;
 		margin-bottom: 10px;
-		border-radius: 10px;
+		border-radius: 20px;
 	}
 	.container {
 		max-width: 700px;
@@ -93,6 +95,19 @@
 		width: 100%;
 	  height: 100%;
 	object-fit: contain;
+	}
+	@media (max-width: 600px){
+		.container {
+			max-width: 350px;
+		}
+		body {
+			font-size: 10px;
+		}
+
+	img {
+		max-width: 90%;
+	}
+
 	}
 
 </style>
