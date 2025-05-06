@@ -74,7 +74,7 @@
 	}
 
 	.code-block {
-		background: #ffffffaa;
+		background: #201f1faa;
 		width: 700px;
 		height: 150px;
 		margin-bottom: 10px;
@@ -82,14 +82,17 @@
 	}
 	.container {
 		max-width: 700px;
+		height: 150x;
+		overflow: hidden;
 		margin: 5px auto;
+		justify-content: center;
 		border-radius: 20px;
 		padding: 20px;
 	}
-	img {
-		width: 700px;
-		height: 150px;
-		object-fit: initial;
+	.container img {
+		width: 100%;
+	  height: 100%;
+	object-fit: contain;
 	}
 
 </style>

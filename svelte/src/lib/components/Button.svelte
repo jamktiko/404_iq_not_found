@@ -54,8 +54,10 @@
 		align-items: center;
 		
 	}
-
 	.vastaus:hover {
 		background: #444;
+	}
+	.eiVastaus:hover {
+		background: #083a08;
 	}
 </style>

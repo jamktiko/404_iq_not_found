@@ -191,7 +191,7 @@
 		border-radius: 10px;
 		border: 6px solid #ccc;
 		margin-bottom: 1rem;
-		width: 150px;
+		width: 350px;
 	}
 	.center-box .viesti {
 		font-weight: bold;
