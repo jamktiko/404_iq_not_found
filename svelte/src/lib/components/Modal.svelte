@@ -1,4 +1,6 @@
 <script>
+
+import { blur } from 'svelte/transition';
 	let { info = $bindable(), children } = $props();
 
 	let dialog = $state(null);
@@ -18,11 +20,13 @@
 		if (e.target === dialog) info = false;
 	}}
 >
-	<div>
-		<span>
-		{@render children()}
-		
-	</div>
+	{#if info}
+		<div transition:blur={{ duration: 300 }}>
+			<span>
+				{@render children()}
+			</span>
+		</div>
+	{/if}
 </dialog>
 
 <style>
