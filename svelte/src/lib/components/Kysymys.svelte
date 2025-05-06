@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Button from './Button.svelte';
+	import { fade } from 'svelte/transition';
+
 	interface Props {
 		img: string;
 		kysymys: string;
@@ -21,27 +23,44 @@
 	//KATSO KESKIVIIKKONA!!!!
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
 
+	let show = $state(false);
+	let menikoOikein: 'Oikein!' | 'Väärin!' = $state('Oikein!');
+
 	function onkoOikeaVastaus(vastaus: string) {
 		//parempi virheen tarkastus id:n kanssa???
 		if (vastaus === oikeaVastaus) {
 			//tässä pitäisi lisätä pisteen ja näyttää käyttäjälle, että oliko oikein
 			//samalla laittaa timeouttiin, että menee seuraavaan kysymykseen
-			console.log('Oikein!');
+			menikoOikein = 'Oikein!';
 
 			pisteet++;
+			show = true;
+			setTimeout(() => (show = false), 1000);
+			setTimeout(() => monesKysymys++, 1500);
+			return;
 		}
 
-		console.log('väärin');
-		return setTimeout(() => {
-			monesKysymys++;
-		}, 1000);
+		menikoOikein = 'Väärin!';
+		show = true;
+		setTimeout(() => (show = false), 1000);
+		setTimeout(() => monesKysymys++, 1500);
 	}
 </script>
 
-<div class="container">
-	<div class="code-block"><img src={img} alt="Koodi" /></div>
+<div class="menikoOikein">
+	{#if show}
+		<h1 transition:fade={{ duration: 300 }}>{menikoOikein}</h1>
+	{/if}
+</div>
 
-	<div class="question">{kysymys}</div>
+<div class="container">
+	<div class="code-block">
+		<img src={img} alt="Koodi" />
+	</div>
+
+	<div class="question">
+		{kysymys}
+	</div>
 
 	{#if vastaukset}
 		{#each vastaukset as vastaus}
@@ -52,6 +71,11 @@
 </div>
 
 <style>
+	.menikoOikein {
+		position: absolute;
+		left: 700px;
+		top: 30px;
+	}
 	.question {
 		font-size: 24px;
 		background: white;

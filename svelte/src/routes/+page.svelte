@@ -4,6 +4,8 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 
+	import { fade, fly } from 'svelte/transition';
+
 	onMount(() => {
 		document.body.className = 'aloitussivu-body';
 	});
@@ -14,7 +16,11 @@
 <!--teemavalitsin, montakysymystä, ns asetukset-->
 
 <!--Aloitussivu-->
-<div class="body">
+<div
+	class="body"
+	in:fade={{ delay: 100, duration: 500 }}
+	out:fly={{ x: -1000, duration: 800, delay: 500 }}
+>
 	<div class="info">i</div>
 	<div>
 		<h2>404</h2>
@@ -26,6 +32,8 @@
 <style>
 	/* Tämä vaikuttaa myös pelisivuun!!!! */
 	:global(body.aloitussivu-body) {
+		overflow-x: hidden;
+		overflow-y: hidden;
 		display: flex;
 		justify-content: center;
 		align-items: center;
