@@ -88,7 +88,9 @@
 	>
 		<p>Pisteesi: {pisteet}</p>
 	</div>
-
+	<div onclick={() => goto('/')} class="info">
+		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;" />
+	</div>
 	<div
 		in:fly={{ x: 500, duration: 1000, delay: 2000 }}
 		out:fly={{ x: -500, duration: 1000, delay: 800 }}
@@ -109,7 +111,6 @@
 			</div>
 		{/key}
 	</div>
-	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
 {:else if monesKysymys - 1 == montaKysymysta}
 	<!-- Tämä näkyy kun lataa uudestaan sivua -->
 
@@ -149,9 +150,10 @@
 <style>
 	:global(body.pelisivu-body) {
 		overflow-x: hidden;
+		overflow-y: hidden;
 		margin: 0;
 		font-family: 'Jaro', sans-serif;
-		font-size: 25px;
+		font-size: 20px;
 		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed;
 		background-size: cover;
 		color: white;
@@ -163,7 +165,7 @@
 		right: 100px;
 		width: 70px;
 		height: 50px;
-		font-size: smaller;
+		font-size: 24px;
 	}
 	.moneskysymys {
 		position: absolute;
@@ -171,7 +173,7 @@
 		left: 100px;
 		width: 80px;
 		height: 50px;
-		font-size: smaller;
+		font-size: 18px;
 	}
 	.overlay {
 		position: relative;
@@ -206,10 +208,29 @@
 		text-align: center;
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 1200px) {
+		:global(body.pelisivu-body) {
+			overflow-y: auto;
+		}
 		.center-box {
 			width: 80%;
 			padding: 1.5rem;
 		}
+		.moneskysymys,
+		.pisteet {
+			position: relative;
+			top: auto;
+			left: auto;
+			right: auto;
+			width: auto;
+			height: auto;
+			font-size: 14px;
+			display: inline-block;
+			margin: 0 10px;
+		}
+	}
+	img {
+		width: 68px;
+		height: auto;
 	}
 </style>
