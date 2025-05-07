@@ -102,6 +102,9 @@
 		body {
 			font-size: 10px;
 		}
+		.question {
+			font-size: 12px;
+		}
 
 		img {
 			max-width: 90%;
