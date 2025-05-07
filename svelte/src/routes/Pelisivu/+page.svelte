@@ -150,6 +150,7 @@
 <style>
 	:global(body.pelisivu-body) {
 		overflow-x: hidden;
+		overflow-y: hidden;
 		margin: 0;
 		font-family: 'Jaro', sans-serif;
 		font-size: 20px;
