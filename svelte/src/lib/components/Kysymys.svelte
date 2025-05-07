@@ -137,8 +137,8 @@
 		.container {
 			max-width: 350px;
 		}
-		body {
-			font-size: 10px;
+		.question {
+			font-size: 12px;
 		}
 
 		img {
