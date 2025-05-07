@@ -88,8 +88,8 @@
 	>
 		<p>Pisteesi: {pisteet}</p>
 	</div>
-<div onclick={() => goto('/')} class="info">
-		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;"/>
+	<div onclick={() => goto('/')} class="info">
+		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;" />
 	</div>
 	<div
 		in:fly={{ x: 500, duration: 1000, delay: 2000 }}
@@ -111,7 +111,6 @@
 			</div>
 		{/key}
 	</div>
-	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
 {:else if monesKysymys - 1 == montaKysymysta}
 	<!-- Tämä näkyy kun lataa uudestaan sivua -->
 
@@ -214,21 +213,20 @@
 			padding: 1.5rem;
 		}
 		.moneskysymys,
-  .pisteet {
-    position: relative;  
-    top: auto;
-    left: auto;
-    right: auto;
-    width: auto;
-    height: auto;
-    font-size: 14px;
-    display: inline-block;
-    margin: 0 10px;
-  }
-		}
-		img {
-			width: 68px;
+		.pisteet {
+			position: relative;
+			top: auto;
+			left: auto;
+			right: auto;
+			width: auto;
 			height: auto;
+			font-size: 14px;
+			display: inline-block;
+			margin: 0 10px;
 		}
-
+	}
+	img {
+		width: 68px;
+		height: auto;
+	}
 </style>
