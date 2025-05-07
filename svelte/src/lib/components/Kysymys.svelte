@@ -57,22 +57,21 @@
 <style>
 	.question {
 		font-size: 18px;
-  background: white;
-  color: black;
-  padding: 18px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  text-align: center;
-	max-width: 90%;        
-  width: 100%;            
-  box-sizing: border-box; 
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-	height: auto;
-
+		background: white;
+		color: black;
+		padding: 18px;
+		margin-bottom: 10px;
+		border-radius: 10px;
+		text-align: center;
+		max-width: 90%;
+		width: 100%;
+		box-sizing: border-box;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: auto;
 	}
 
 	.code-block {
@@ -93,10 +92,10 @@
 	}
 	.container img {
 		width: 100%;
-	  height: 100%;
-	object-fit: contain;
+		height: 100%;
+		object-fit: contain;
 	}
-	@media (max-width: 600px){
+	@media (max-width: 600px) {
 		.container {
 			max-width: 350px;
 		}
@@ -104,13 +103,8 @@
 			font-size: 10px;
 		}
 
-	img {
-		max-width: 90%;
+		img {
+			max-width: 90%;
+		}
 	}
-	.question {
-		font-size: 12px;
-	}
-
-	}
-
 </style>
