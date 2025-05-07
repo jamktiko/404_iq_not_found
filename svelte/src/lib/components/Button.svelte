@@ -1,4 +1,7 @@
 <script lang="ts">
+	// import { sound } from 'svelte-sound';
+	// import click_mp3 from '/sounds/click.mp3';
+	// use:sound={{ src: click_mp3, events: ['click'] }}
 	interface Props {
 		otsikko: String;
 		onclick: () => void;

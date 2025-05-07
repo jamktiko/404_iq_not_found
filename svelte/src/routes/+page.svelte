@@ -4,6 +4,8 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	// import { sound } from 'svelte-sound';
+	// import click_mp3 from '/sounds/click.mp3';
 
 	onMount(() => {
 		document.body.className = 'aloitussivu-body';
@@ -29,7 +31,9 @@
 			vastaus={false}
 			otsikko="Asetukset"
 			disabled={false}
-			onclick={() => goto('/Asetukset')}
+			onclick={() => {
+				goto('/Asetukset');
+			}}
 		/>
 	</div>
 </div>
