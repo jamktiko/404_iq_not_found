@@ -35,11 +35,18 @@
 		console.log('väärin');
 		monesKysymys++;
 	}
+
+	let isExpanded = $state(false);
 </script>
 
 <div class="container">
 	<div class="code-block">
-		<img src={img} alt="Koodi" />
+		<img
+			src={img}
+			alt="Koodi"
+			class:expanded={isExpanded}
+			onclick={() => (isExpanded = !isExpanded)}
+		/>
 	</div>
 
 	<div class="question">
@@ -55,6 +62,16 @@
 </div>
 
 <style>
+	img.expanded {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		object-fit: contain;
+		z-index: 9999;
+	}
+
 	.question {
 		font-size: 18px;
 		background: white;
