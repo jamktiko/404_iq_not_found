@@ -107,6 +107,9 @@
 	img {
 		max-width: 90%;
 	}
+	.question {
+		font-size: 12px;
+	}
 
 	}
 
