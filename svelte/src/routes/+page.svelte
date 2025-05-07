@@ -3,7 +3,6 @@
 	import Button from '$lib/components/Button.svelte';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-
 	import { fade, fly } from 'svelte/transition';
 
 	onMount(() => {
@@ -18,14 +17,20 @@
 <!--Aloitussivu-->
 <div
 	class="body"
-	in:fade={{ delay: 100, duration: 500 }}
-	out:fly={{ x: -1000, duration: 800, delay: 500 }}
+	in:fade={{ delay: 900, duration: 500 }}
+	out:fly={{ x: -1000, duration: 1000, delay: 300 }}
 >
 	<div class="info">i</div>
 	<div>
 		<h2>404</h2>
 		<h1>IQ Not Found</h1>
 		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+		<Button
+			vastaus={false}
+			otsikko="Asetukset"
+			disabled={false}
+			onclick={() => goto('/Asetukset')}
+		/>
 	</div>
 </div>
 
