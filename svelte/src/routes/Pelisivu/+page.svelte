@@ -209,6 +209,9 @@
 	}
 
 	@media (max-width: 1200px) {
+		:global(body.pelisivu-body) {
+			overflow-y: auto;
+		}
 		.center-box {
 			width: 80%;
 			padding: 1.5rem;
