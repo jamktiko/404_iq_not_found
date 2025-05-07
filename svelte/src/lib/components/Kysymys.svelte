@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from './Button.svelte';
+	import { fade } from 'svelte/transition';
 
 	interface Props {
 		img: string;
@@ -22,20 +23,35 @@
 	//KATSO KESKIVIIKKONA!!!!
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
 
+	let show = $state(false);
+	let menikoOikein: 'Oikein!' | 'Väärin!' = $state('Oikein!');
+
 	function onkoOikeaVastaus(vastaus: string) {
 		//parempi virheen tarkastus id:n kanssa???
 		if (vastaus === oikeaVastaus) {
 			//tässä pitäisi lisätä pisteen ja näyttää käyttäjälle, että oliko oikein
 			//samalla laittaa timeouttiin, että menee seuraavaan kysymykseen
-			console.log('Oikein!');
+			menikoOikein = 'Oikein!';
 
 			pisteet++;
+			show = true;
+			setTimeout(() => (show = false), 1000);
+			setTimeout(() => monesKysymys++, 1500);
+			return;
 		}
 
-		console.log('väärin');
-		monesKysymys++;
+		menikoOikein = 'Väärin!';
+		show = true;
+		setTimeout(() => (show = false), 1000);
+		setTimeout(() => monesKysymys++, 1500);
 	}
 </script>
+
+<div class="menikoOikein">
+	{#if show}
+		<h1 transition:fade={{ duration: 300 }}>{menikoOikein}</h1>
+	{/if}
+</div>
 
 <div class="container">
 	<div class="code-block">
@@ -55,24 +71,28 @@
 </div>
 
 <style>
+	.menikoOikein {
+		position: absolute;
+		left: 700px;
+		top: 30px;
+	}
 	.question {
 		font-size: 18px;
-  background: white;
-  color: black;
-  padding: 18px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  text-align: center;
-	max-width: 90%;        
-  width: 100%;            
-  box-sizing: border-box; 
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-	height: auto;
-
+		background: white;
+		color: black;
+		padding: 18px;
+		margin-bottom: 10px;
+		border-radius: 10px;
+		text-align: center;
+		max-width: 90%;
+		width: 100%;
+		box-sizing: border-box;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: auto;
 	}
 
 	.code-block {
@@ -93,21 +113,19 @@
 	}
 	.container img {
 		width: 100%;
-	  height: 100%;
-	object-fit: contain;
+		height: 100%;
+		object-fit: contain;
 	}
-	@media (max-width: 600px){
+	@media (max-width: 600px) {
 		.container {
 			max-width: 350px;
 		}
-		body {
-			font-size: 10px;
+		.question {
+			font-size: 12px;
 		}
 
-	img {
-		max-width: 90%;
+		img {
+			max-width: 90%;
+		}
 	}
-
-	}
-
 </style>

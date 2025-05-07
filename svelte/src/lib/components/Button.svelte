@@ -39,6 +39,7 @@
 	.vastaus {
 		display: block;
 		width: 100%;
+		height: 60px;
 		background: black;
 		color: white;
 		font-family: 'Jaro';
@@ -46,9 +47,10 @@
 		border-radius: 30px;
 		padding: 10px;
 		margin: 1px 0;
-		font-size: 25px;
+		font-size: 20px;
 		cursor: pointer;
 		transition: background 0.3s;
+		text-overflow: ellipsis
 	}
 	.eiVastaus {
 		align-items: center;
@@ -85,4 +87,10 @@
     padding: 10px;
   }
 }
+	
+@media (max-width: 600px) {
+	 .vastaus {
+		font-size: 15px;
+	 }
+	}
 </style>
