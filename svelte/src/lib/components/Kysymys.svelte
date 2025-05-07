@@ -45,6 +45,8 @@
 		setTimeout(() => (show = false), 1000);
 		setTimeout(() => monesKysymys++, 1500);
 	}
+
+	let isExpanded = $state(false);
 </script>
 
 <div class="menikoOikein">
@@ -55,7 +57,12 @@
 
 <div class="container">
 	<div class="code-block">
-		<img src={img} alt="Koodi" />
+		<img
+			src={img}
+			alt="Koodi"
+			class:expanded={isExpanded}
+			onclick={() => (isExpanded = !isExpanded)}
+		/>
 	</div>
 
 	<div class="question">
@@ -76,30 +83,66 @@
 		left: 700px;
 		top: 30px;
 	}
+	img.expanded {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		object-fit: contain;
+		z-index: 9999;
+	}
+
 	.question {
-		font-size: 24px;
+		font-size: 18px;
 		background: white;
 		color: black;
-		padding: 15px;
-		margin-bottom: 20px;
+		padding: 18px;
+		margin-bottom: 10px;
 		border-radius: 10px;
 		text-align: center;
-		max-width: 700px;
-		max-width: fit-content;
+		max-width: 90%;
+		width: 100%;
+		box-sizing: border-box;
 		margin-left: auto;
 		margin-right: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: auto;
 	}
 
 	.code-block {
-		background: #ffffffaa;
-		height: fit-content;
-		margin-bottom: 20px;
-		border-radius: 10px;
+		background: #201f1faa;
+		max-width: 700px;
+		height: 150px;
+		margin-bottom: 10px;
+		border-radius: 20px;
 	}
 	.container {
-		max-width: 900px;
-		margin: 100px auto;
+		max-width: 700px;
+		height: 150x;
+		overflow: hidden;
+		margin: 5px auto;
+		justify-content: center;
 		border-radius: 20px;
 		padding: 20px;
+	}
+	.container img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+	@media (max-width: 600px) {
+		.container {
+			max-width: 350px;
+		}
+		body {
+			font-size: 10px;
+		}
+
+		img {
+			max-width: 90%;
+		}
 	}
 </style>
