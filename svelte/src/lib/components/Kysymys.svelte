@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from './Button.svelte';
+	import { fade } from 'svelte/transition';
 
 	interface Props {
 		img: string;
@@ -22,24 +23,46 @@
 	//KATSO KESKIVIIKKONA!!!!
 	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
 
+	let show = $state(false);
+	let menikoOikein: 'Oikein!' | 'Väärin!' = $state('Oikein!');
+
 	function onkoOikeaVastaus(vastaus: string) {
 		//parempi virheen tarkastus id:n kanssa???
 		if (vastaus === oikeaVastaus) {
 			//tässä pitäisi lisätä pisteen ja näyttää käyttäjälle, että oliko oikein
 			//samalla laittaa timeouttiin, että menee seuraavaan kysymykseen
-			console.log('Oikein!');
+			menikoOikein = 'Oikein!';
 
 			pisteet++;
+			show = true;
+			setTimeout(() => (show = false), 1000);
+			setTimeout(() => monesKysymys++, 1500);
+			return;
 		}
 
-		console.log('väärin');
-		monesKysymys++;
+		menikoOikein = 'Väärin!';
+		show = true;
+		setTimeout(() => (show = false), 1000);
+		setTimeout(() => monesKysymys++, 1500);
 	}
+
+	let isExpanded = $state(false);
 </script>
+
+<div class="menikoOikein">
+	{#if show}
+		<h1 transition:fade={{ duration: 300 }}>{menikoOikein}</h1>
+	{/if}
+</div>
 
 <div class="container">
 	<div class="code-block">
-		<img src={img} alt="Koodi" />
+		<img
+			src={img}
+			alt="Koodi"
+			class:expanded={isExpanded}
+			onclick={() => (isExpanded = !isExpanded)}
+		/>
 	</div>
 
 	<div class="question">
@@ -55,6 +78,21 @@
 </div>
 
 <style>
+	.menikoOikein {
+		position: absolute;
+		left: 700px;
+		top: 30px;
+	}
+	img.expanded {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		object-fit: contain;
+		z-index: 9999;
+	}
+
 	.question {
 		font-size: 18px;
 		background: white;
@@ -99,8 +137,8 @@
 		.container {
 			max-width: 350px;
 		}
-		body {
-			font-size: 10px;
+		.question {
+			font-size: 12px;
 		}
 
 		img {

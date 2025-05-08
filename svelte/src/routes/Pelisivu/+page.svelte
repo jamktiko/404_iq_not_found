@@ -123,8 +123,8 @@
 	>
 		{#key monesKysymys}
 			<div
-				in:fly={{ x: 500, duration: 1000, delay: 1000 }}
-				out:fly={{ x: -500, duration: 1000, delay: 200 }}
+				in:fly={{ x: 500, duration: 1000, delay: 1300 }}
+				out:fly={{ x: -500, duration: 1000, delay: 500 }}
 			>
 				<Kysymys
 					img={valitutKysymykset[monesKysymys - 1].img}
@@ -144,7 +144,7 @@
 	<div
 		class="overlay"
 		in:fly={{ x: 300, duration: 1000, delay: 2400 }}
-		out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+		out:fly={{ x: -300, duration: 1000, delay: 200 }}
 	>
 		<div class="center-box">
 			<p class="viesti">Onnea, pääsit pelin loppuun!</p>
@@ -177,6 +177,7 @@
 <style>
 	:global(body.pelisivu-body) {
 		overflow-x: hidden;
+		overflow-y: hidden;
 		margin: 0;
 		font-family: 'Jaro', sans-serif;
 		font-size: 20px;
@@ -235,11 +236,30 @@
 	}
 
 	@media (max-width: 1200px) {
+		:global(body.pelisivu-body) {
+			overflow-y: auto;
+		}
 		.center-box {
 			width: 80%;
 			padding: 1.5rem;
 		}
 		.moneskysymys,
+		.pisteet {
+			position: relative;
+			top: auto;
+			left: auto;
+			right: auto;
+			width: auto;
+			height: auto;
+			font-size: 14px;
+			display: inline-block;
+			margin: 0 10px;
+		}
+	}
+	img {
+		width: 68px;
+		height: auto;
+	}
 		.pisteet {
 			position: relative;
 			top: auto;
