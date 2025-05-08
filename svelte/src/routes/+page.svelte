@@ -14,25 +14,11 @@
 		document.body.classList.remove('theme-default', 'theme-olio', 'theme-kahvi');
 		document.body.classList.add(`theme-${teema}`);
 	});
-
-	// let taustakuva;
-
-	// if (teema === 'default') {
-	// 	taustakuva = '/img/taustakuvakokeilu.png';
-	// } else if (teema === 'olio') {
-	// 	taustakuva = '/img/Hi.gif';
-	// } else if (teema === 'kahvi') {
-	// 	taustakuva = '';
-	// }
 </script>
 
 <!--Aloitussivu-->
-{#if teema === 'default'}
-	<div
-		class="body_default"
-		in:fade={{ delay: 900, duration: 500 }}
-		out:fly={{ x: -1000, duration: 1000, delay: 300 }}
-	>
+<div in:fade={{ delay: 100, duration: 500 }} out:fly={{ x: -1000, duration: 800 }}>
+	<div class="body">
 		<div class="info">i</div>
 
 		<h2>404</h2>
@@ -48,45 +34,7 @@
 			<img class="asetukset" src="/img/settings.png" alt="settings" />
 		</div>
 	</div>
-{:else if teema === 'olio'}
-	<div
-		class="body_olio"
-		in:fade={{ delay: 900, duration: 500 }}
-		out:fly={{ x: -1000, duration: 1000, delay: 300 }}
-	>
-		<h2>404</h2>
-		<h1>IQ Not Found</h1>
-		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
-		<div
-			class="settings"
-			onclick={() => {
-				goto('/Asetukset');
-			}}
-			style="cursor: pointer;"
-		>
-			<img class="asetukset" src="/img/settings.png" alt="settings" />
-		</div>
-	</div>
-{:else if teema === 'kahvi'}
-	<div
-		class="body_kahvi"
-		in:fade={{ delay: 900, duration: 500 }}
-		out:fly={{ x: -1000, duration: 1000, delay: 300 }}
-	>
-		<h2>404</h2>
-		<h1>IQ Not Found</h1>
-		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
-		<div
-			class="settings"
-			onclick={() => {
-				goto('/Asetukset');
-			}}
-			style="cursor: pointer;"
-		>
-			<img class="asetukset" src="/img/settings.png" alt="settings" />
-		</div>
-	</div>
-{/if}
+</div>
 
 <style>
 	/* Default */
@@ -96,7 +44,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed black;
+		background: url('/img/taustakuvakokeilu.png') no-repeat center center fixed black;
 		background-size: cover;
 		color: white;
 	}
@@ -106,7 +54,7 @@
 		top: 40px;
 		left: 30px;
 	}
-	.body_default {
+	.body {
 		margin: 0;
 		display: flex;
 		justify-content: center;

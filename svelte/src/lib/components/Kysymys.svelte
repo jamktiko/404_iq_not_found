@@ -82,6 +82,8 @@
 		position: absolute;
 		left: 700px;
 		top: 30px;
+		background-color: black;
+		border: solid 2px antiquewhite;
 	}
 	img.expanded {
 		position: fixed;
@@ -121,7 +123,6 @@
 	}
 	.container {
 		max-width: 700px;
-		height: 150x;
 		overflow: hidden;
 		margin: 5px auto;
 		justify-content: center;

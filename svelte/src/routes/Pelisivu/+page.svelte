@@ -8,7 +8,7 @@
 	import type { IKysymys } from '$lib/types/kysymys.d.ts';
 	import { asetukset } from '$lib/components/asetukset.svelte';
 
-	let teema = asetukset.teema;
+	let teema = $state(asetukset.teema);
 
 	//tämän tarkoitus olisi pitää yllä monennessako alkiossa mennään valitutKysymykset taulukossa
 	//Toisin sanoen auttaisi menemään läpi kaikki kysymykset
@@ -22,7 +22,8 @@
 
 	// vaihda oikeeseen json tiedostoon ja tee muokkaukset sen mukaan
 	onMount(async () => {
-		document.body.className = 'pelisivu-body';
+		document.body.classList.remove('theme-default', 'theme-olio', 'theme-kahvi');
+		document.body.classList.add(`theme-${teema}`);
 		const response = await fetch('/data/kysymykset_full.json');
 		if (!response.ok) {
 			throw new Error('Dataa ei löytynyt');
@@ -63,12 +64,8 @@
 	}
 </script>
 
-<!-- {#if sivu === 'peli'} -->
 <!--Pelisivu-->
 
-<!-- //KATSO KESKIVIIKKONA!!!!
-	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
-   -->
 {#if valitutKysymykset.length > 0 && monesKysymys - 1 < valitutKysymykset.length}
 	<div
 		class="moneskysymys"
@@ -91,9 +88,9 @@
 	</div>
 	<div
 		onclick={() => goto('/')}
-		class="info"
+		class="exit"
 		in:fly={{ x: 300, duration: 1000, delay: 1500 }}
-		out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+		out:fly={{ x: -300, duration: 500, delay: 1300 }}
 	>
 		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;" />
 	</div>
@@ -103,7 +100,7 @@
 	>
 		{#key monesKysymys}
 			<div
-				in:fly={{ x: 500, duration: 1000, delay: 1300 }}
+				in:fly={{ x: 500, duration: 1000, delay: 1500 }}
 				out:fly={{ x: -500, duration: 1000, delay: 500 }}
 			>
 				<Kysymys
@@ -135,34 +132,23 @@
 	<h1>Loading...</h1>
 {/if}
 
-<!-- {#each valitutKysymykset as kysymys}
-		<Kysymys
-			id={kysymys.id}
-			img={kysymys.img}
-			kysymys={kysymys.kysymys}
-			vastaukset={kysymys.vastaukset}
-			oikeaVastaus={kysymys.oikeaVastaus}
-		/>
-	{:else}
-		<h1>Loading...</h1>
-	{/each} -->
-<!-- {:else if sivu === 'lopetus'} -->
-<!--Lopetussivu-->
-<!-- <h1>Pelasit loppuun!</h1>
-	<p>haluatko pelata uudestaan??</p>
-	<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
-{/if} -->
-
 <style>
-	:global(body.pelisivu-body) {
+	/* Default */
+	:global(body.theme-default) {
 		overflow-x: hidden;
 		overflow-y: hidden;
-		margin: 0;
+
 		font-family: 'Jaro', sans-serif;
 		font-size: 20px;
-		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed;
+		background: url('/img/taustakuvakokeilu.png') no-repeat center center fixed;
 		background-size: cover;
 		color: white;
+	}
+	.exit {
+		position: absolute;
+		top: 40px;
+		left: 30px;
+		cursor: pointer;
 	}
 
 	.pisteet {
@@ -238,5 +224,31 @@
 	img {
 		width: 68px;
 		height: auto;
+	}
+
+	/* Olio */
+
+	:global(body.theme-olio) {
+		overflow-x: hidden;
+		overflow-y: hidden;
+
+		font-family: 'Jaro', sans-serif;
+		font-size: 20px;
+		background: url('/img/Hi.gif') no-repeat center center fixed;
+		background-size: cover;
+		color: white;
+	}
+
+	/* Kahvi */
+
+	:global(body.theme-kahvi) {
+		overflow-x: hidden;
+		overflow-y: hidden;
+		margin: 0;
+		font-family: 'Jaro', sans-serif;
+		font-size: 20px;
+		background: url('') no-repeat center center fixed;
+		background-size: cover;
+		color: white;
 	}
 </style>
