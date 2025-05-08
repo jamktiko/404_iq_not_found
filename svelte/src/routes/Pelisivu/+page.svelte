@@ -24,6 +24,7 @@
 	onMount(async () => {
 		document.body.classList.remove('theme-default', 'theme-olio', 'theme-kahvi');
 		document.body.classList.add(`theme-${teema}`);
+
 		const response = await fetch('/data/kysymykset_full.json');
 		if (!response.ok) {
 			throw new Error('Dataa ei löytynyt');
@@ -137,7 +138,6 @@
 	:global(body.theme-default) {
 		overflow-x: hidden;
 		overflow-y: hidden;
-
 		font-family: 'Jaro', sans-serif;
 		font-size: 20px;
 		background: url('/img/taustakuvakokeilu.png') no-repeat center center fixed;
