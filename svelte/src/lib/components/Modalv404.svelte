@@ -30,11 +30,12 @@
 	<div class="modal-overlay" transition:blur={{ duration: 355 }}>
 		<div class="modal">
 			<!--Otsikko-->
-			<div class="modal-header">
+			<!-- <div class="modal-header">
 				<h2>{title}</h2>
 				<button class="close-btn" onclick={closeModal}>x</button>
-			</div>
+			</div> -->
 			<!--Sisältö-->
+			<div class="close" onclick={closeModal}>X</div>
 			<div class="modal-content">
 				{#if children}
 					{@render children()}
@@ -77,31 +78,62 @@
 		justify-content: center;
 		align-items: center;
 	}
+	.close {
+		position: absolute;
+		top: 6px;
+		right: 5px;
+		background-color: #000000;
+		color: white;
+		border: 2px solid white;
+		border-radius: 50%;
+		width: 35px;
+		height: 35px;
+		cursor: pointer;
+		text-align: center;
+		font-family: 'Jaro', sans-serif;
+		font-size: 28px;
+		font-style: normal;
+		font-weight: 400;
+	}
 	.modal {
 		background-color: black;
-		border-radius: 8px;
-		padding: 20px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		border: 2px solid lightgray;
+		border-radius: 10px;
+		padding: 10px;
+		width: 750px;
+		height: 450px;
+		position: relative;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+		color: white;
+		font-family: sans-serif;
+		font-size: 25px;
+		font-style: normal;
+		font-weight: 400;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		-webkit-text-stroke: 1px #fff;
 	}
-	.modal-header {
+	/* .modal-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	}
+	} */
 	.modal-content {
 		margin-top: 10px;
 	}
-	.modal-footer {
+	/* .modal-footer {
 		display: flex;
 		justify-content: space-between;
 		margin-top: 20px;
-	}
-	.close-btn {
+	} */
+	/* .close-btn {
 		background: white;
 		border: none;
 		font-size: 1.5rem;
 		cursor: pointer;
-	}
+	} */
 	.cancel-btn {
 		background-color: #f44336;
 		color: white;

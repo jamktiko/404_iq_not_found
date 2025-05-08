@@ -26,12 +26,19 @@
 	out:fly={{ x: -1000, duration: 800, delay: 500 }}
 >
 	<button onclick={() => (showModal = true)} class="info">i</button>
-	<Modalv404 bind:open={showModal} title="infopläjäys" onClose={closeModal} showFooter={false}>
+	<Modalv404
+		bind:open={showModal}
+		title="infopläjäys"
+		onClose={closeModal}
+		showFooter={false}
+		info={true}
+	>
 		{#snippet children()}
 			<p>404 IQ Not Found on yksinkertainen tietovisa, jossa</p>
 			<p>luetaan koodia kuvasta ja vastataan monivalintakysymykseen.</p>
 			<p>Pelin tarkoitus on opetella koodin lukemista.</p>
 			<p>Voit valita oman teeman ja kuinka monta kysymystä haluat!</p>
+			<hr />
 			<p>Tekijät: Netta, Minttu, Annika, Joona</p>
 		{/snippet}
 	</Modalv404>
