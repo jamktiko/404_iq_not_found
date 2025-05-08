@@ -6,8 +6,9 @@
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import type { IKysymys } from '$lib/types/kysymys.d.ts';
+	import { asetukset } from '$lib/components/asetukset.svelte';
 
-	let sivu: 'peli' | 'lopetus' = $state('peli');
+	let teema = asetukset.teema;
 
 	//tämän tarkoitus olisi pitää yllä monennessako alkiossa mennään valitutKysymykset taulukossa
 	//Toisin sanoen auttaisi menemään läpi kaikki kysymykset
@@ -33,7 +34,7 @@
 	//randomit kysymykset
 	let valitutKysymykset: IKysymys[] = $state([]);
 	//montako kysymystä halutaan
-	const montaKysymysta = 10;
+	const montaKysymysta = asetukset.montaKysymysta;
 
 	function randomKysymykset(taulukko: IKysymys[]) {
 		//Tämä määrää, montako kysymystä halutaan
