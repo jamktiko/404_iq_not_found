@@ -88,7 +88,12 @@
 	>
 		<p>Pisteesi: {pisteet}</p>
 	</div>
-	<div onclick={() => goto('/')} class="info">
+	<div
+		onclick={() => goto('/')}
+		class="info"
+		in:fly={{ x: 300, duration: 1000, delay: 1500 }}
+		out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+	>
 		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;" />
 	</div>
 	<div
