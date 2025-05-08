@@ -1,20 +1,9 @@
 
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import adapter from '@sveltejs/adapter-netlify';
 
-
-
-export default config; // Import the necessary modules
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
-	preprocess: vitePreprocess(),
-
+export default {
 	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
+		// default options are shown
 		adapter: adapter({
 			// if true, will create a Netlify Edge Function rather
 			// than using standard Node-based functions
@@ -25,12 +14,5 @@ const config = {
 			// if `edge` is true, this option cannot be used
 			split: false
 		})
-		
 	}
 };
-
-
-	
-
-
-// Removed duplicate default export to fix the error
