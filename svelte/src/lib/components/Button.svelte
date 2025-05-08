@@ -50,11 +50,10 @@
 		font-size: 20px;
 		cursor: pointer;
 		transition: background 0.3s;
-		text-overflow: ellipsis
+		text-overflow: ellipsis;
 	}
 	.eiVastaus {
 		align-items: center;
-		
 	}
 	.vastaus:hover {
 		background: #444;
@@ -62,10 +61,35 @@
 	.eiVastaus:hover {
 		background: #083a08;
 	}
-	
-@media (max-width: 600px) {
-	 .vastaus {
-		font-size: 15px;
-	 }
+
+	@media (max-width: 600px) {
+		.vastaus {
+			font-size: 15px;
+		}
+	}
+	@media (max-width: 900px) {
+		.eiVastaus {
+			width: 700px;
+			padding: 10px;
+		}
+	}
+
+	@media (max-width: 820px) {
+		.eiVastaus {
+			width: 600px;
+			padding: 10px;
+		}
+	}
+	@media (max-width: 700px) {
+		.eiVastaus {
+			width: 500px;
+			padding: 10px;
+		}
+	}
+	@media (max-width: 600px) {
+		.eiVastaus {
+			width: 450px;
+			padding: 10px;
+		}
 	}
 </style>
