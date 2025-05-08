@@ -4,26 +4,26 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import { asetukset } from '$lib/components/asetukset.svelte';
+
+	let teema = $state(asetukset.teema);
 	// import { sound } from 'svelte-sound';
 	// import click_mp3 from '/sounds/click.mp3';
 
 	onMount(() => {
 		document.body.className = 'aloitussivu-body';
 	});
-
-	//tee sivu pelille ja reititä
 </script>
 
-<!--teemavalitsin, montakysymystä, ns asetukset-->
-
 <!--Aloitussivu-->
-<div
-	class="body"
-	in:fade={{ delay: 900, duration: 500 }}
-	out:fly={{ x: -1000, duration: 1000, delay: 300 }}
->
-	<div class="info">i</div>
-	<div>
+{#if teema === 'default'}
+	<div
+		class="body_default"
+		in:fade={{ delay: 900, duration: 500 }}
+		out:fly={{ x: -1000, duration: 1000, delay: 300 }}
+	>
+		<div class="info">i</div>
+
 		<h2>404</h2>
 		<h1>IQ Not Found</h1>
 		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
@@ -37,10 +37,48 @@
 			<img class="asetukset" src="/img/settings.png" alt="settings" />
 		</div>
 	</div>
-</div>
+{:else if teema === 'olio'}
+	<div
+		class="body_olio"
+		in:fade={{ delay: 900, duration: 500 }}
+		out:fly={{ x: -1000, duration: 1000, delay: 300 }}
+	>
+		<h2>404</h2>
+		<h1>IQ Not Found</h1>
+		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+		<div
+			class="settings"
+			onclick={() => {
+				goto('/Asetukset');
+			}}
+			style="cursor: pointer;"
+		>
+			<img class="asetukset" src="/img/settings.png" alt="settings" />
+		</div>
+	</div>
+{:else if teema === 'kahvi'}
+	<div
+		class="body_kahvi"
+		in:fade={{ delay: 900, duration: 500 }}
+		out:fly={{ x: -1000, duration: 1000, delay: 300 }}
+	>
+		<h2>404</h2>
+		<h1>IQ Not Found</h1>
+		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+		<div
+			class="settings"
+			onclick={() => {
+				goto('/Asetukset');
+			}}
+			style="cursor: pointer;"
+		>
+			<img class="asetukset" src="/img/settings.png" alt="settings" />
+		</div>
+	</div>
+{/if}
 
 <style>
-	/* Tämä vaikuttaa myös pelisivuun!!!! */
+	/* Default */
 	:global(body.aloitussivu-body) {
 		overflow-x: hidden;
 		overflow-y: hidden;
@@ -57,7 +95,7 @@
 		top: 40px;
 		left: 30px;
 	}
-	.body {
+	.body_default {
 		margin: 0;
 		display: flex;
 		justify-content: center;
@@ -112,5 +150,16 @@
 		font-size: 42px;
 		text-align: center;
 		cursor: pointer;
+	}
+
+	/* Olio */
+
+	.body_olio {
+		background-color: #000;
+	}
+
+	/* Kahvi */
+	.body_kahvi {
+		background-color: burlywood;
 	}
 </style>

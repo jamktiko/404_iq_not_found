@@ -7,6 +7,8 @@
 	let teema: 'default' | 'olio' | 'kahvi' = $state('default');
 </script>
 
+<!-- Lisää vielä monta kysymystä käyttäjä haluaa -->
+
 <div in:fade={{ delay: 2500, duration: 500 }} out:fly={{ x: -1000, duration: 800, delay: 50 }}>
 	<select bind:value={teema}>
 		<option value="default">Default</option>
