@@ -1,6 +1,10 @@
-import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import adapter from '@sveltejs/adapter-netlify';
+
+
+
+export default config; // Import the necessary modules
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
@@ -15,4 +19,8 @@ const config = {
 	}
 };
 
-export default config;
+
+	
+
+
+// Removed duplicate default export to fix the error
