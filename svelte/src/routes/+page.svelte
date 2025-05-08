@@ -11,8 +11,19 @@
 	// import click_mp3 from '/sounds/click.mp3';
 
 	onMount(() => {
-		document.body.className = 'aloitussivu-body';
+		document.body.classList.remove('theme-default', 'theme-olio', 'theme-kahvi');
+		document.body.classList.add(`theme-${teema}`);
 	});
+
+	// let taustakuva;
+
+	// if (teema === 'default') {
+	// 	taustakuva = '/img/taustakuvakokeilu.png';
+	// } else if (teema === 'olio') {
+	// 	taustakuva = '/img/Hi.gif';
+	// } else if (teema === 'kahvi') {
+	// 	taustakuva = '';
+	// }
 </script>
 
 <!--Aloitussivu-->
@@ -79,7 +90,7 @@
 
 <style>
 	/* Default */
-	:global(body.aloitussivu-body) {
+	:global(body.theme-default) {
 		overflow-x: hidden;
 		overflow-y: hidden;
 		display: flex;
@@ -154,12 +165,26 @@
 
 	/* Olio */
 
-	.body_olio {
-		background-color: #000;
+	:global(body.theme-olio) {
+		overflow-x: hidden;
+		overflow-y: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: url('img/Hi.gif') no-repeat center center fixed black;
+		background-size: cover;
+		color: white;
 	}
 
 	/* Kahvi */
-	.body_kahvi {
-		background-color: burlywood;
+	:global(body.theme-kahvi) {
+		overflow-x: hidden;
+		overflow-y: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: url('') no-repeat center center fixed black;
+		background-size: cover;
+		color: white;
 	}
 </style>
