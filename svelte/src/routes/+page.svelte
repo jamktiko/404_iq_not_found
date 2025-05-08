@@ -28,10 +28,11 @@
 	<button onclick={() => (showModal = true)} class="info">i</button>
 	<Modalv404 bind:open={showModal} title="infopläjäys" onClose={closeModal} showFooter={false}>
 		{#snippet children()}
-			<p>IQ-peli on peli, jossa pelaaja voi testata omaa älykkyyttään.</p>
-			<p>Pelissä on 10 kysymystä, joista jokaisesta saa 1-5 pistettä.</p>
-			<p>Pelissä on myös aikaraja, joka on 30 sekuntia per kysymys.</p>
-			<p>Pelissä on myös mahdollisuus valita kysymykset itse.</p>
+			<p>404 IQ Not Found on yksinkertainen tietovisa, jossa</p>
+			<p>luetaan koodia kuvasta ja vastataan monivalintakysymykseen.</p>
+			<p>Pelin tarkoitus on opetella koodin lukemista.</p>
+			<p>Voit valita oman teeman ja kuinka monta kysymystä haluat!</p>
+			<p>Tekijät: Netta, Minttu, Annika, Joona</p>
 		{/snippet}
 	</Modalv404>
 
