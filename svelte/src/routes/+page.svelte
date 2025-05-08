@@ -26,7 +26,7 @@
 	out:fly={{ x: -1000, duration: 800, delay: 500 }}
 >
 	<button onclick={() => (showModal = true)} class="info">i</button>
-	<Modalv404 open={showModal} title="infopläjäys" onClose={closeModal} showFooter={false}>
+	<Modalv404 bind:open={showModal} title="infopläjäys" onClose={closeModal} showFooter={false}>
 		{#snippet children()}
 			<p>IQ-peli on peli, jossa pelaaja voi testata omaa älykkyyttään.</p>
 			<p>Pelissä on 10 kysymystä, joista jokaisesta saa 1-5 pistettä.</p>

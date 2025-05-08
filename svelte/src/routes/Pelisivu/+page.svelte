@@ -8,7 +8,6 @@
 	import type { IKysymys } from '$lib/types/kysymys.d.ts';
 	import Modalv404 from '$lib/components/Modalv404.svelte';
 
-
 	let sivu: 'peli' | 'lopetus' = $state('peli');
 
 	//tämän tarkoitus olisi pitää yllä monennessako alkiossa mennään valitutKysymykset taulukossa
@@ -62,19 +61,18 @@
 		console.log(valitutKysymykset);
 		return valitutKysymykset;
 	}
-// Keskeytä peli
-let showModal = $state(false);
-function ifConfirm() {
-	goto('/');
-}
-function ifCancel() {
-	console.log('cancel');
-}
+	// Keskeytä peli
+	let showModal = $state(false);
+	function ifConfirm() {
+		goto('/');
+	}
+	function ifCancel() {
+		console.log('cancel');
+	}
 
-function ifClose() {
-	showModal = false;
-}
-
+	function ifClose() {
+		showModal = false;
+	}
 </script>
 
 <!-- {#if sivu === 'peli'} -->
@@ -103,20 +101,20 @@ function ifClose() {
 	>
 		<p>Pisteesi: {pisteet}</p>
 	</div>
-<button onclick={() => showModal = true}>
-		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;"/>
-</button>
-<Modalv404
-		open={showModal}
+	<button onclick={() => (showModal = true)}>
+		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;" />
+	</button>
+	<Modalv404
+		bind:open={showModal}
 		title="Vahvista lopetus"
 		onConfirm={ifConfirm}
 		onCancel={ifCancel}
 		onClose={ifClose}
 		showFooter={true}
-	> 	
-	{#snippet children()}
-		<p>Haluatko varmasti lopettaa pelin?</p>
-	{/snippet}
+	>
+		{#snippet children()}
+			<p>Haluatko varmasti lopettaa pelin?</p>
+		{/snippet}
 	</Modalv404>
 
 	<div
@@ -139,7 +137,7 @@ function ifClose() {
 			</div>
 		{/key}
 	</div>
-<!--	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} /> -->
+	<!--	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} /> -->
 {:else if monesKysymys - 1 == montaKysymysta}
 	<!-- Tämä näkyy kun lataa uudestaan sivua -->
 
@@ -242,21 +240,20 @@ function ifClose() {
 			padding: 1.5rem;
 		}
 		.moneskysymys,
-  .pisteet {
-    position: relative;  
-    top: auto;
-    left: auto;
-    right: auto;
-    width: auto;
-    height: auto;
-    font-size: 14px;
-    display: inline-block;
-    margin: 0 10px;
-  }
-		}
-		img {
-			width: 68px;
+		.pisteet {
+			position: relative;
+			top: auto;
+			left: auto;
+			right: auto;
+			width: auto;
 			height: auto;
+			font-size: 14px;
+			display: inline-block;
+			margin: 0 10px;
 		}
-
+	}
+	img {
+		width: 68px;
+		height: auto;
+	}
 </style>
