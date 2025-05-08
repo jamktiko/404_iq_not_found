@@ -111,6 +111,7 @@
 		onCancel={ifCancel}
 		onClose={ifClose}
 		showFooter={true}
+		info={false}
 	>
 		{#snippet children()}
 			<p>Haluatko varmasti lopettaa pelin?</p>
