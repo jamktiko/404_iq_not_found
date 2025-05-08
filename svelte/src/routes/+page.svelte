@@ -7,12 +7,12 @@
 	onMount(() => {
 		document.body.className = 'aloitussivu-body';
 	});
-import Modalv404 from '$lib/components/Modalv404.svelte';
+	import Modalv404 from '$lib/components/Modalv404.svelte';
 	let showModal = $state(false);
 	function closeModal() {
 		showModal = false;
 	}
-	
+
 	//tee sivu pelille ja reititä
 </script>
 
@@ -24,29 +24,21 @@ import Modalv404 from '$lib/components/Modalv404.svelte';
 	class="body"
 	in:fade={{ delay: 100, duration: 500 }}
 	out:fly={{ x: -1000, duration: 800, delay: 500 }}
-	>
-	<button onclick={() =>showModal= true } class="close-btn">i</button>
-<Modalv404
-			
-	open={showModal}
-	title="infopläjäys"
-	onClose={closeModal}
-	showFooter={false}
-	>
- {#snippet children()}
-		<p>IQ-peli on peli, jossa pelaaja voi testata omaa älykkyyttään.</p>
-		<p>Pelissä on 10 kysymystä, joista jokaisesta saa 1-5 pistettä.</p>
-		<p>Pelissä on myös aikaraja, joka on 30 sekuntia per kysymys.</p>
-		<p>Pelissä on myös mahdollisuus valita kysymykset itse.</p>
-	{/snippet}
-</Modalv404>
+>
+	<button onclick={() => (showModal = true)} class="info">i</button>
+	<Modalv404 open={showModal} title="infopläjäys" onClose={closeModal} showFooter={false}>
+		{#snippet children()}
+			<p>IQ-peli on peli, jossa pelaaja voi testata omaa älykkyyttään.</p>
+			<p>Pelissä on 10 kysymystä, joista jokaisesta saa 1-5 pistettä.</p>
+			<p>Pelissä on myös aikaraja, joka on 30 sekuntia per kysymys.</p>
+			<p>Pelissä on myös mahdollisuus valita kysymykset itse.</p>
+		{/snippet}
+	</Modalv404>
 
-
-		<h2>404</h2>
-		<h1>IQ Not Found</h1>
-		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
-	</div>
-
+	<h2>404</h2>
+	<h1>IQ Not Found</h1>
+	<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+</div>
 
 <style>
 	/* Tämä vaikuttaa myös pelisivuun!!!! */
@@ -117,7 +109,7 @@ import Modalv404 from '$lib/components/Modalv404.svelte';
 		cursor: pointer;
 	}
 	div:hover {
-		backround-color: #F0F0F0;
+		backround-color: #f0f0f0;
 	}
 
 	img {
