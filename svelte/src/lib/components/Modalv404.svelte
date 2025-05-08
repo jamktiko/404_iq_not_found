@@ -1,0 +1,119 @@
+<script lang="ts">
+    import { blur } from "svelte/transition";
+
+    interface MoProps {
+        open?: boolean ;
+        title?: string;
+        onConfirm?: () => void;
+        onCancel?: () => void;
+        onClose?: () => void;
+        showFooter?: boolean;
+        children?: () => any;
+    }
+
+    let {
+        open = false,
+        title = "",
+        onConfirm = () => {},
+        onCancel = () => {},
+        onClose = () => {},
+        showFooter = true,
+        children
+    }: MoProps = $props();
+    
+    function closeModal() {
+        open = false;
+    }
+    
+</script>
+
+{#if open}
+    <div class="modal-overlay" transition:blur={{duration: 355}}>
+        <div class="modal">
+            <!--Otsikko-->
+            <div class="modal-header">
+            <h2>{title}</h2>
+            <button class="close-btn" onclick={closeModal}>x</button>
+                </div>
+                    <!--Sisältö-->
+                <div class="modal-content">
+                    {#if children}
+                        {@render children()}
+                    {:else}
+                        <p>
+                            ei sisältöä
+                        </p>
+                    {/if}
+                </div>
+                <!--Vahvistus elementti footerissa-->
+                {#if showFooter}
+                    <div class="modal-footer">
+                        <button class="confirm-btn" onclick={() => { onConfirm (); closeModal(); }}>Kyllä</button>
+                        <button class="cancel-btn" onclick={() => { onCancel (); closeModal(); }}>Ei</button>
+                    </div>
+                {/if}
+        </div>
+    </div>
+{/if}
+
+    <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-content {
+            margin-top: 10px;
+        }
+        .modal-footer { 
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }  
+        .cancel-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .confirm-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .cancel-btn:hover {
+            background-color: #d32f2f;
+        }
+        .confirm-btn:hover {
+            background-color: #388E3C;
+        }
+        </style>
+        

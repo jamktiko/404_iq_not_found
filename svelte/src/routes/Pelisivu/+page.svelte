@@ -4,8 +4,10 @@
 	import Kysymys from '$lib/components/Kysymys.svelte';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, blur } from 'svelte/transition';
 	import type { IKysymys } from '$lib/types/kysymys.d.ts';
+	import Modalv404 from '$lib/components/Modalv404.svelte';
+
 
 	let sivu: 'peli' | 'lopetus' = $state('peli');
 
@@ -60,6 +62,19 @@
 		console.log(valitutKysymykset);
 		return valitutKysymykset;
 	}
+// Keskeytä peli
+let showModal = $state(false);
+function ifConfirm() {
+	goto('/');
+}
+function ifCancel() {
+	console.log('cancel');
+}
+
+function ifClose() {
+	showModal = false;
+}
+
 </script>
 
 <!-- {#if sivu === 'peli'} -->
@@ -88,9 +103,22 @@
 	>
 		<p>Pisteesi: {pisteet}</p>
 	</div>
-<div onclick={() => goto('/')} class="info">
+<button onclick={() => showModal = true}>
 		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;"/>
-	</div>
+</button>
+<Modalv404
+		open={showModal}
+		title="Vahvista lopetus"
+		onConfirm={ifConfirm}
+		onCancel={ifCancel}
+		onClose={ifClose}
+		showFooter={true}
+	> 	
+	{#snippet children()}
+		<p>Haluatko varmasti lopettaa pelin?</p>
+	{/snippet}
+	</Modalv404>
+
 	<div
 		in:fly={{ x: 500, duration: 1000, delay: 2000 }}
 		out:fly={{ x: -500, duration: 1000, delay: 800 }}
@@ -111,7 +139,7 @@
 			</div>
 		{/key}
 	</div>
-	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} />
+<!--	<Button vastaus={false} otsikko="Keskeytä" disabled={false} onclick={() => goto('/')} /> -->
 {:else if monesKysymys - 1 == montaKysymysta}
 	<!-- Tämä näkyy kun lataa uudestaan sivua -->
 
