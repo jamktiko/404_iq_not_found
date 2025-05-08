@@ -27,14 +27,15 @@
 		<h2>404</h2>
 		<h1>IQ Not Found</h1>
 		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
-		<Button
-			vastaus={false}
-			otsikko="Asetukset"
-			disabled={false}
+		<div
+			class="settings"
 			onclick={() => {
 				goto('/Asetukset');
 			}}
-		/>
+			style="cursor: pointer;"
+		>
+			<img class="asetukset" src="/img/settings.png" alt="settings" />
+		</div>
 	</div>
 </div>
 
@@ -49,6 +50,12 @@
 		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed black;
 		background-size: cover;
 		color: white;
+	}
+	.asetukset {
+		width: 60px;
+		position: absolute;
+		top: 40px;
+		left: 30px;
 	}
 	.body {
 		margin: 0;
