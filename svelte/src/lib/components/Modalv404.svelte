@@ -9,6 +9,7 @@
 		onClose?: () => void;
 		showFooter?: boolean;
 		children?: () => any;
+		info: boolean;
 	}
 
 	let {
@@ -18,7 +19,8 @@
 		onCancel = () => {},
 		onClose = () => {},
 		showFooter = true,
-		children
+		children,
+		info
 	}: MoProps = $props();
 
 	function closeModal() {
@@ -28,41 +30,79 @@
 
 {#if open}
 	<div class="modal-overlay" transition:blur={{ duration: 355 }}>
-		<div class="modal">
-			<!--Otsikko-->
-			<!-- <div class="modal-header">
+		{#if info}
+			<div class="modal_info">
+				<!--Otsikko-->
+				<!-- <div class="modal-header">
 				<h2>{title}</h2>
 				<button class="close-btn" onclick={closeModal}>x</button>
 			</div> -->
-			<!--Sisältö-->
-			<div class="close" onclick={closeModal}>X</div>
-			<div class="modal-content">
-				{#if children}
-					{@render children()}
-				{:else}
-					<p>ei sisältöä</p>
+				<!--Sisältö-->
+				<div class="close" onclick={closeModal}>X</div>
+				<div class="modal-content_info">
+					{#if children}
+						{@render children()}
+					{:else}
+						<p>ei sisältöä</p>
+					{/if}
+				</div>
+				<!--Vahvistus elementti footerissa-->
+				{#if showFooter}
+					<div class="modal-footer_info">
+						<button
+							class="confirm-btn"
+							onclick={() => {
+								onConfirm();
+								closeModal();
+							}}>Kyllä</button
+						>
+						<button
+							class="cancel-btn"
+							onclick={() => {
+								onCancel();
+								closeModal();
+							}}>Ei</button
+						>
+					</div>
 				{/if}
 			</div>
-			<!--Vahvistus elementti footerissa-->
-			{#if showFooter}
-				<div class="modal-footer">
-					<button
-						class="confirm-btn"
-						onclick={() => {
-							onConfirm();
-							closeModal();
-						}}>Kyllä</button
-					>
-					<button
-						class="cancel-btn"
-						onclick={() => {
-							onCancel();
-							closeModal();
-						}}>Ei</button
-					>
+		{:else if !info}
+			<div class="modal_muu">
+				<!--Otsikko-->
+				<!-- <div class="modal-header">
+				<h2>{title}</h2>
+				<button class="close-btn" onclick={closeModal}>x</button>
+			</div> -->
+				<!--Sisältö-->
+				<div class="close" onclick={closeModal}>X</div>
+				<div class="modal-content_muu">
+					{#if children}
+						{@render children()}
+					{:else}
+						<p>ei sisältöä</p>
+					{/if}
 				</div>
-			{/if}
-		</div>
+				<!--Vahvistus elementti footerissa-->
+				{#if showFooter}
+					<div class="modal-footer_muu">
+						<button
+							class="confirm-btn"
+							onclick={() => {
+								onConfirm();
+								closeModal();
+							}}>Kyllä</button
+						>
+						<button
+							class="cancel-btn"
+							onclick={() => {
+								onCancel();
+								closeModal();
+							}}>Ei</button
+						>
+					</div>
+				{/if}
+			</div>
+		{/if}
 	</div>
 {/if}
 
@@ -95,7 +135,7 @@
 		font-style: normal;
 		font-weight: 400;
 	}
-	.modal {
+	.modal_info {
 		background-color: black;
 		border: 2px solid lightgray;
 		border-radius: 10px;
@@ -115,27 +155,27 @@
 		text-align: center;
 		-webkit-text-stroke: 1px #fff;
 	}
-	.modal-header {
+	/* .modal-header_info {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	} 
-	.modal-content {
+	} */
+	.modal-content_info {
 		margin-bottom: 70px;
 	}
-	.modal-footer {
+	.modal-footer_info {
 		display: flex;
 		justify-content: center;
 		align-items: flex-start;
 		gap: 20px;
 		margin-top: 200px;
-	} 
-	 .close-btn {
+	}
+	/* .close-btn {
 		background: white;
 		border: none;
 		font-size: 1.5rem;
 		cursor: pointer;
-	} 
+	} */
 	.cancel-btn {
 		background-color: #f44336;
 		color: white;
