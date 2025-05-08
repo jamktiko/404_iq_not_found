@@ -115,25 +115,27 @@
 		text-align: center;
 		-webkit-text-stroke: 1px #fff;
 	}
-	/* .modal-header {
+	.modal-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	} */
+	} 
 	.modal-content {
-		margin-top: 10px;
+		margin-bottom: 70px;
 	}
-	/* .modal-footer {
+	.modal-footer {
 		display: flex;
-		justify-content: space-between;
-		margin-top: 20px;
-	} */
-	/* .close-btn {
+		justify-content: center;
+		align-items: flex-start;
+		gap: 20px;
+		margin-top: 200px;
+	} 
+	 .close-btn {
 		background: white;
 		border: none;
 		font-size: 1.5rem;
 		cursor: pointer;
-	} */
+	} 
 	.cancel-btn {
 		background-color: #f44336;
 		color: white;
