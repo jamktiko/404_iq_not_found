@@ -170,6 +170,32 @@
 		gap: 20px;
 		margin-top: 200px;
 	}
+	/* Info modaalin responsiivisuus */
+	@media (max-width:800px) {
+		.modal_info {
+		 width: 500px;
+		 height: 350px;
+		}
+		.modal-content_info {
+			margin-top: 50px;
+			font-size: 20px;
+		}
+	}
+	@media (max-width: 600px) {
+	.modal_info {
+		width:400px ;
+		height:320px ;
+	} 
+  .modal-content_info {
+		margin-top: 90px;
+		font-size: 20px;
+	}
+	.close {
+		width: 25px;
+		height: 25px;
+		font-size: 20px;
+	}
+}
 	/* .close-btn {
 		background: white;
 		border: none;
@@ -229,7 +255,7 @@
 		justify-content: center;
 		gap: 35px;
 	}
-	
+	/* Lopeta kesken-responsiivisuus*/
 	@media (max-width: 600px) {
   .modal_muu {
    width: 400px;
@@ -240,4 +266,5 @@
 		font-size: 20px;
 	}
 }
+
 </style>
