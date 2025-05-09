@@ -1,4 +1,7 @@
 <script lang="ts">
+	// import { sound } from 'svelte-sound';
+	// import click_mp3 from '/sounds/click.mp3';
+	// use:sound={{ src: click_mp3, events: ['click'] }}
 	interface Props {
 		otsikko: String;
 		onclick: () => void;
@@ -39,19 +42,83 @@
 	.vastaus {
 		display: block;
 		width: 100%;
+		height: 60px;
 		background: black;
 		color: white;
 		font-family: 'Jaro';
-		border: 2px solid white;
+		border: 3px solid white;
 		border-radius: 30px;
-		padding: 15px;
-		font-size: 25px;
-		margin: 10px 0;
+		padding: 10px;
+		margin: 1px 0;
+		font-size: 20px;
 		cursor: pointer;
 		transition: background 0.3s;
+		text-overflow: ellipsis;
 	}
-
+	.eiVastaus {
+		align-items: center;
+	}
 	.vastaus:hover {
 		background: #444;
 	}
+	.eiVastaus:hover {
+		background: #083a08;
+	}
+
+	@media (max-width: 600px) {
+		.vastaus {
+			font-size: 15px;
+		}
+	}
+	@media (max-width: 900px) {
+		.eiVastaus {
+			width: 700px;
+			padding: 10px;
+		}
+	}
+
+	@media (max-width: 820px) {
+		.eiVastaus {
+			width: 600px;
+			padding: 10px;
+		}
+	}
+	@media (max-width: 700px) {
+		.eiVastaus {
+			width: 500px;
+			padding: 10px;
+		}
+	}
+	@media (max-width: 600px) {
+		.eiVastaus {
+			width: 450px;
+			padding: 10px;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.eiVastaus {
+    width: 700px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 820px) {
+	.eiVastaus {
+    width: 600px;
+    padding: 10px;
+  }
+}
+@media (max-width: 700px) {
+  .eiVastaus {
+    width: 500px;
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .eiVastaus {
+    width: 450px;
+    padding: 10px;
+  }
+}
 </style>

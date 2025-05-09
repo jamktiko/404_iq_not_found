@@ -1,16 +1,15 @@
 body {
   margin: 0;
   font-family: 'Jaro', sans-serif;
-  background: url(taustakuva.png) no-repeat center center fixed;
+  background: url('/aloitussivu/kuvat/Hi.gif') no-repeat center center fixed;
   background-size: cover;
-  color: #fff;
+  color: #725838;
 }
 
 .overlay {
   position: relative;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(4px);
   display: flex;
   font-family: 'Jaro';
   flex-direction: column;
@@ -20,10 +19,10 @@ body {
 }
 
 .center-box {
-  background-color: #000;
+  background-color: #ffffff;
   padding: 3rem;
   border-radius: 10px;
-  border: 6px solid #ccc;
+  border: 6px solid #725838;
   margin-bottom: 1rem;
   width: 350px;
 }
@@ -44,9 +43,9 @@ body {
 
 .pelaa-uudelleen {
   padding: 1.8rem 3rem;
-  background: #000;
-  color: #fff;
-  border: 2px solid #fff;
+  background: #ffffff;
+  color: #725838;
+  border: 2px solid #725838;
   border-radius: 2px;
   font-size: 1.7rem;
   cursor: pointer;
@@ -56,7 +55,7 @@ body {
 }
 
 .pelaa-uudelleen:hover {
-  background: #333;
+  background: #deac6faf;
 }
 
 @media (max-width: 600px) {
