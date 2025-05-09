@@ -142,6 +142,7 @@
 			</div>
 		{/key}
 	</div>
+	<div class="vinkki"><p>Klikkaa kuvaa suurentaaksesi sitä</p></div>
 {:else if monesKysymys - 1 == montaKysymysta}
 	<div
 		class="overlay"
@@ -177,6 +178,14 @@
 		width: 70px;
 		height: 50px;
 		font-size: 24px;
+	}
+	.vinkki {
+		position: absolute;
+		top: 140px;
+		right: 90px;
+		width: 200px;
+		height: 50px;
+		font-size: 20px;
 	}
 	.moneskysymys {
 		position: absolute;
