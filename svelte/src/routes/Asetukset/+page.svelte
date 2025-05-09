@@ -33,6 +33,9 @@
 		if (monta === 1) {
 			viesti = '...';
 		}
+		if (monta < 0) {
+			viesti = 'Senkin höpsö';
+		}
 		asetukset.montaKysymysta = monta;
 	}
 </script>
