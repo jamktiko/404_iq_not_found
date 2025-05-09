@@ -101,7 +101,11 @@
 		<p>Pisteesi: {pisteet}</p>
 	</div>
 
-	<div onclick={() => (showModal = true)}>
+	<div
+		onclick={() => (showModal = true)}
+		in:fly={{ x: 500, duration: 1000, delay: 1500 }}
+		out:fly={{ x: -500, duration: 1000, delay: 500 }}
+	>
 		<img src="/img/exitt.png" alt="back to menu" style="cursor: pointer;" />
 	</div>
 	<Modalv404
