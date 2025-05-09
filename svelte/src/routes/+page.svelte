@@ -248,6 +248,7 @@
 		font-family: 'Jaro', sans-serif;
 		text-align: center;
 	}
+
 	@media (max-width: 900px) {
 		h1 {
 			font-size: 100px;

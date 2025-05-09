@@ -102,7 +102,7 @@
 	</div>
 
 	<button onclick={() => (showModal = true)}>
-		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;" />
+		<img src="img/exitt.png" alt="back to menu" style="cursor: pointer;" />
 	</button>
 	<Modalv404
 		bind:open={showModal}
