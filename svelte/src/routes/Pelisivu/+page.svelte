@@ -4,9 +4,12 @@
 	import Kysymys from '$lib/components/Kysymys.svelte';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, blur } from 'svelte/transition';
 	import type { IKysymys } from '$lib/types/kysymys.d.ts';
+
 	import { asetukset } from '$lib/components/asetukset.svelte';
+
+	import Modalv404 from '$lib/components/Modalv404.svelte';
 
 	let teema = asetukset.teema;
 
@@ -61,6 +64,18 @@
 		console.log(valitutKysymykset);
 		return valitutKysymykset;
 	}
+	// Keskeytä peli
+	let showModal = $state(false);
+	function ifConfirm() {
+		goto('/');
+	}
+	function ifCancel() {
+		console.log('cancel');
+	}
+
+	function ifClose() {
+		showModal = false;
+	}
 </script>
 
 <!--Pelisivu-->
@@ -85,14 +100,24 @@
 	>
 		<p>Pisteesi: {pisteet}</p>
 	</div>
-	<div
-		onclick={() => goto('/')}
-		class="info"
-		in:fly={{ x: 300, duration: 1000, delay: 1500 }}
-		out:fly={{ x: -300, duration: 1000, delay: 1300 }}
-	>
+
+	<button onclick={() => (showModal = true)}>
 		<img src="img/exit.png" alt="back to menu" style="cursor: pointer;" />
-	</div>
+	</button>
+	<Modalv404
+		bind:open={showModal}
+		title="Vahvista lopetus"
+		onConfirm={ifConfirm}
+		onCancel={ifCancel}
+		onClose={ifClose}
+		showFooter={true}
+		info={false}
+	>
+		{#snippet children()}
+			<p>Haluatko varmasti lopettaa pelin?</p>
+		{/snippet}
+	</Modalv404>
+
 	<div
 		in:fly={{ x: 500, duration: 1000, delay: 2000 }}
 		out:fly={{ x: -500, duration: 1000, delay: 800 }}

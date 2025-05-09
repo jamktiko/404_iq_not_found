@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: 'Jaro', sans-serif;
+  background: url('/aloitussivu/kuvat/Hi.gif') no-repeat center center fixed;
+  background-size: cover;
+  color: #725838;
+}
+
+.overlay {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  font-family: 'Jaro';
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(15vh);
+}
+
+.center-box {
+  background-color: #ffffff;
+  padding: 3rem;
+  border-radius: 10px;
+  border: 6px solid #725838;
+  margin-bottom: 1rem;
+  width: 350px;
+}
+
+.center-box .viesti {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding-bottom: 40px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.center-box .pisteet {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.pelaa-uudelleen {
+  padding: 1.8rem 3rem;
+  background: #ffffff;
+  color: #725838;
+  border: 2px solid #725838;
+  border-radius: 2px;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 25rem;
+  font-family: 'Jaro', sans-serif;
+}
+
+.pelaa-uudelleen:hover {
+  background: #deac6faf;
+}
+
+@media (max-width: 600px) {
+  .center-box {
+    width: 80%;
+    padding: 1.5rem;
+  }
+
+  .pelaa-uudelleen {
+    width: 80%;
+  }
+}
