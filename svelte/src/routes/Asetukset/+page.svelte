@@ -5,24 +5,52 @@
 	import { fade, fly } from 'svelte/transition';
 	import { asetukset } from '$lib/components/asetukset.svelte';
 	let teema: 'default' | 'olio' | 'kahvi' = $state(asetukset.teema);
-</script>
+	let monta: number = $state(asetukset.montaKysymysta);
 
-<!-- Lisää vielä monta kysymystä käyttäjä haluaa -->
+	let show = $state(false);
+	let viesti = $state('');
+
+	function asetaTeema() {
+		asetukset.teema = teema;
+		show = true;
+		viesti = `Teema asetettu: ${teema}`;
+		setTimeout(() => (show = false), 1000);
+	}
+	function asetaKysymys() {
+		show = true;
+		viesti = `Sinulta kysytään: ${monta} kysymystä`;
+		setTimeout(() => (show = false), 1300);
+		if (monta === 0) {
+			viesti = 'Laita ny ees jonki verra kysymyksiä';
+		}
+		if (monta > 20) {
+			viesti = '20 on maksimi!!!';
+		}
+		asetukset.montaKysymysta = monta;
+	}
+</script>
 
 <div
 	in:fly={{ x: -1000, delay: 2500, duration: 500 }}
 	out:fly={{ x: -1000, duration: 800, delay: 50 }}
 >
+	{#if show}
+		<h1 transition:fade={{ duration: 300 }}>{viesti}</h1>
+	{/if}
+
 	<select bind:value={teema}>
 		<option value="default">Default</option>
 		<option value="olio">Olio</option>
 		<option value="kahvi">Kahvi</option>
 	</select>
+	<Button vastaus={false} otsikko="Aseta teema" disabled={false} onclick={() => asetaTeema()} />
+
+	<input type="number" bind:value={monta} />
 	<Button
 		vastaus={false}
-		otsikko="Aseta teema"
+		otsikko="Aseta kysymysten määrä"
 		disabled={false}
-		onclick={() => (asetukset.teema = teema)}
+		onclick={() => asetaKysymys()}
 	/>
 
 	<Button vastaus={false} otsikko="Takaisin" disabled={false} onclick={() => goto('/')} />

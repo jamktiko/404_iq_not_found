@@ -18,7 +18,11 @@
 
 <div in:fade={{ delay: 900, duration: 500 }} out:fly={{ x: -1000, duration: 1000, delay: 300 }}>
 	{#if teema === 'default'}
-		<div class="body_default">
+		<div
+			class="body_default"
+			in:fade={{ delay: 900, duration: 500 }}
+			out:fly={{ x: -1000, duration: 1000, delay: 300 }}
+		>
 			<div class="info">i</div>
 
 			<h2>404</h2>

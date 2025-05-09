@@ -15,6 +15,10 @@ export const asetukset = {
 		return haluttuAsetus.montaKysymysta;
 	},
 	set montaKysymysta(a: number) {
-		haluttuAsetus.montaKysymysta = a;
+		if (!(a > 20) && a > 0) {
+			haluttuAsetus.montaKysymysta = a;
+		} else {
+			throw new Error('Maksimi on 20!');
+		}
 	}
 };
