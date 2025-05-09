@@ -102,6 +102,7 @@
 	</div>
 
 	<div
+		class="exit"
 		onclick={() => (showModal = true)}
 		in:fly={{ x: 500, duration: 1000, delay: 1500 }}
 		out:fly={{ x: -500, duration: 1000, delay: 500 }}
@@ -169,6 +170,9 @@
 		font-size: 20px;
 		background-size: cover;
 		color: white;
+	}
+	.exit {
+		width: fit-content;
 	}
 
 	.pisteet {
