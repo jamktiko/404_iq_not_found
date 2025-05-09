@@ -14,17 +14,24 @@
 		asetukset.teema = teema;
 		show = true;
 		viesti = `Teema asetettu: ${teema}`;
-		setTimeout(() => (show = false), 1000);
+		setTimeout(() => (show = false), 1500);
 	}
 	function asetaKysymys() {
 		show = true;
 		viesti = `Sinulta kysytään: ${monta} kysymystä`;
-		setTimeout(() => (show = false), 1300);
+		setTimeout(() => (show = false), 1500);
 		if (monta === 0) {
 			viesti = 'Laita ny ees jonki verra kysymyksiä';
 		}
-		if (monta > 20) {
-			viesti = '20 on maksimi!!!';
+		if (monta > 20 || monta === 69) {
+			if (monta === 69) {
+				viesti = 'hehe';
+			} else {
+				viesti = '20 on maksimi!!!';
+			}
+		}
+		if (monta === 1) {
+			viesti = '...';
 		}
 		asetukset.montaKysymysta = monta;
 	}
