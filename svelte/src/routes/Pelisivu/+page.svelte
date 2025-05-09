@@ -257,4 +257,17 @@
 		width: 68px;
 		height: auto;
 	}
+	.vinkki {
+		transform: translateX(50px);
+	}
+	@media (max-width:1210px) {
+		.vinkki {
+			position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    padding: 4px;
+    z-index: 100;
+		}
+	}
 </style>
