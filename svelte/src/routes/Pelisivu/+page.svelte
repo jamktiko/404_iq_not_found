@@ -271,7 +271,7 @@
 			display: inline-block;
 			margin: 0 10px;
 		}
-	}
+	
 	img {
 		width: 68px;
 		height: auto;
