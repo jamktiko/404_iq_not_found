@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { fade, fly } from 'svelte/transition';
 	import { asetukset } from '$lib/components/asetukset.svelte';
-	let teema: 'default' | 'olio' | 'kahvi' = $state('default');
+	let teema: 'default' | 'olio' | 'kahvi' = $state(asetukset.teema);
 </script>
 
 <!-- Lisää vielä monta kysymystä käyttäjä haluaa -->

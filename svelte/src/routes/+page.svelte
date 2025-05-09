@@ -14,16 +14,6 @@
 		document.body.classList.remove('theme-default', 'theme-olio', 'theme-kahvi');
 		document.body.classList.add(`theme-${teema}`);
 	});
-
-	// let taustakuva;
-
-	// if (teema === 'default') {
-	// 	taustakuva = '/img/taustakuvakokeilu.png';
-	// } else if (teema === 'olio') {
-	// 	taustakuva = '/img/Hi.gif';
-	// } else if (teema === 'kahvi') {
-	// 	taustakuva = '';
-	// }
 </script>
 
 <!--Aloitussivu-->
@@ -96,7 +86,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed black;
+		background: url('/img/taustakuvakokeilu.png') no-repeat center center fixed black;
 		background-size: cover;
 		color: white;
 	}
@@ -171,9 +161,19 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: url('img/Hi.gif') no-repeat center center fixed black;
+		background: url('/img/Hi.gif') no-repeat center center fixed black;
 		background-size: cover;
 		color: white;
+	}
+	.body_olio {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		min-height: 100vh;
+		font-family: 'Jaro', sans-serif;
+		text-align: center;
 	}
 
 	/* Kahvi */
@@ -186,5 +186,16 @@
 		background: url('') no-repeat center center fixed black;
 		background-size: cover;
 		color: white;
+	}
+
+	.body_kahvi {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		min-height: 100vh;
+		font-family: 'Jaro', sans-serif;
+		text-align: center;
 	}
 </style>

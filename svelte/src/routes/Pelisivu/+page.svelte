@@ -63,12 +63,8 @@
 	}
 </script>
 
-<!-- {#if sivu === 'peli'} -->
 <!--Pelisivu-->
 
-<!-- //KATSO KESKIVIIKKONA!!!!
-	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
-   -->
 {#if valitutKysymykset.length > 0 && monesKysymys - 1 < valitutKysymykset.length}
 	<div
 		class="moneskysymys"
@@ -118,8 +114,6 @@
 		{/key}
 	</div>
 {:else if monesKysymys - 1 == montaKysymysta}
-	<!-- Tämä näkyy kun lataa uudestaan sivua -->
-
 	<div
 		class="overlay"
 		in:fly={{ x: 300, duration: 1000, delay: 2400 }}
@@ -134,24 +128,6 @@
 {:else}
 	<h1>Loading...</h1>
 {/if}
-
-<!-- {#each valitutKysymykset as kysymys}
-		<Kysymys
-			id={kysymys.id}
-			img={kysymys.img}
-			kysymys={kysymys.kysymys}
-			vastaukset={kysymys.vastaukset}
-			oikeaVastaus={kysymys.oikeaVastaus}
-		/>
-	{:else}
-		<h1>Loading...</h1>
-	{/each} -->
-<!-- {:else if sivu === 'lopetus'} -->
-<!--Lopetussivu-->
-<!-- <h1>Pelasit loppuun!</h1>
-	<p>haluatko pelata uudestaan??</p>
-	<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
-{/if} -->
 
 <style>
 	:global(body.pelisivu-body) {
