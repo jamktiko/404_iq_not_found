@@ -143,7 +143,13 @@
 			</div>
 		{/key}
 	</div>
-	<div class="vinkki"><p>Klikkaa kuvaa suurentaaksesi sitä</p></div>
+	<div
+		class="vinkki"
+		in:fly={{ x: 300, duration: 1000, delay: 2800 }}
+		out:fly={{ x: -300, duration: 1000, delay: 1300 }}
+	>
+		<p>Klikkaa kuvaa suurentaaksesi sitä</p>
+	</div>
 {:else if monesKysymys - 1 == montaKysymysta}
 	<div
 		class="overlay"
