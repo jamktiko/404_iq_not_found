@@ -101,9 +101,9 @@
 		<p>Pisteesi: {pisteet}</p>
 	</div>
 
-	<button onclick={() => (showModal = true)}>
-		<img src="img/exitt.png" alt="back to menu" style="cursor: pointer;" />
-	</button>
+	<div onclick={() => (showModal = true)}>
+		<img src="/img/exitt.png" alt="back to menu" style="cursor: pointer;" />
+	</div>
 	<Modalv404
 		bind:open={showModal}
 		title="Vahvista lopetus"
