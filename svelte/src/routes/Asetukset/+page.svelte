@@ -24,3 +24,16 @@
 
 	<Button vastaus={false} otsikko="Takaisin" disabled={false} onclick={() => goto('/')} />
 </div>
+
+<style>
+	div {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		min-height: 100vh;
+		font-family: 'Jaro', sans-serif;
+		text-align: center;
+	}
+</style>

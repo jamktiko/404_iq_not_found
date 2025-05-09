@@ -99,7 +99,7 @@
 	>
 		{#key monesKysymys}
 			<div
-				in:fly={{ x: 500, duration: 1000, delay: 1300 }}
+				in:fly={{ x: 500, duration: 1000, delay: 1500 }}
 				out:fly={{ x: -500, duration: 1000, delay: 500 }}
 			>
 				<Kysymys
@@ -135,8 +135,8 @@
 		overflow-y: hidden;
 		margin: 0;
 		font-family: 'Jaro', sans-serif;
+		background: url('/img/taustakuvakokeilu.png') no-repeat center center fixed black;
 		font-size: 20px;
-		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed;
 		background-size: cover;
 		color: white;
 	}

@@ -7,8 +7,6 @@
 	import { asetukset } from '$lib/components/asetukset.svelte';
 
 	let teema = $state(asetukset.teema);
-	// import { sound } from 'svelte-sound';
-	// import click_mp3 from '/sounds/click.mp3';
 
 	onMount(() => {
 		document.body.classList.remove('theme-default', 'theme-olio', 'theme-kahvi');
