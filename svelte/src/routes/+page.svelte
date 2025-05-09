@@ -15,66 +15,59 @@
 </script>
 
 <!--Aloitussivu-->
-{#if teema === 'default'}
-	<div
-		class="body_default"
-		in:fade={{ delay: 900, duration: 500 }}
-		out:fly={{ x: -1000, duration: 1000, delay: 300 }}
-	>
-		<div class="info">i</div>
 
-		<h2>404</h2>
-		<h1>IQ Not Found</h1>
-		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
-		<div
-			class="settings"
-			onclick={() => {
-				goto('/Asetukset');
-			}}
-			style="cursor: pointer;"
-		>
-			<img class="asetukset" src="/img/settings.png" alt="settings" />
+<div in:fade={{ delay: 900, duration: 500 }} out:fly={{ x: -1000, duration: 1000, delay: 300 }}>
+	{#if teema === 'default'}
+		<div class="body_default">
+			<div class="info">i</div>
+
+			<h2>404</h2>
+			<h1>IQ Not Found</h1>
+			<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+			<div
+				class="settings"
+				onclick={() => {
+					goto('/Asetukset');
+				}}
+				style="cursor: pointer;"
+			>
+				<img class="asetukset" src="/img/settings.png" alt="settings" />
+			</div>
 		</div>
-	</div>
-{:else if teema === 'olio'}
-	<div
-		class="body_olio"
-		in:fade={{ delay: 900, duration: 500 }}
-		out:fly={{ x: -1000, duration: 1000, delay: 300 }}
-	>
-		<h2>404</h2>
-		<h1>IQ Not Found</h1>
-		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
-		<div
-			class="settings"
-			onclick={() => {
-				goto('/Asetukset');
-			}}
-			style="cursor: pointer;"
-		>
-			<img class="asetukset" src="/img/settings.png" alt="settings" />
+	{:else if teema === 'olio'}
+		<div class="body_olio">
+			<div class="info">i</div>
+			<h2>404</h2>
+			<h1>IQ Not Found</h1>
+			<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+			<div
+				class="settings"
+				onclick={() => {
+					goto('/Asetukset');
+				}}
+				style="cursor: pointer;"
+			>
+				<img class="asetukset" src="/img/settings.png" alt="settings" />
+			</div>
 		</div>
-	</div>
-{:else if teema === 'kahvi'}
-	<div
-		class="body_kahvi"
-		in:fade={{ delay: 900, duration: 500 }}
-		out:fly={{ x: -1000, duration: 1000, delay: 300 }}
-	>
-		<h2>404</h2>
-		<h1>IQ Not Found</h1>
-		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
-		<div
-			class="settings"
-			onclick={() => {
-				goto('/Asetukset');
-			}}
-			style="cursor: pointer;"
-		>
-			<img class="asetukset" src="/img/settings.png" alt="settings" />
+	{:else if teema === 'kahvi'}
+		<div class="body_kahvi">
+			<div class="info">i</div>
+			<h2>404</h2>
+			<h1>IQ Not Found</h1>
+			<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+			<div
+				class="settings"
+				onclick={() => {
+					goto('/Asetukset');
+				}}
+				style="cursor: pointer;"
+			>
+				<img class="asetukset" src="/img/settings.png" alt="settings" />
+			</div>
 		</div>
-	</div>
-{/if}
+	{/if}
+</div>
 
 <style>
 	/* Default */
