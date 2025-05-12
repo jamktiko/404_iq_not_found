@@ -38,16 +38,16 @@
 	}
 	.vastaus {
 		display: block;
-		width: 100%;
-		height: 60px;
+		width: 500px;
+		height:52px;
 		background: black;
 		color: white;
 		font-family: 'Jaro';
-		border: 3px solid white;
+		border: 2px solid white;
 		border-radius: 30px;
-		padding: 10px;
-		margin: 1px 0;
-		font-size: 20px;
+		padding: 0px;
+		margin: 0px 0;
+		font-size: 18px;
 		cursor: pointer;
 		transition: background 0.3s;
 		text-overflow: ellipsis
@@ -66,6 +66,7 @@
 @media (max-width: 600px) {
 	 .vastaus {
 		font-size: 15px;
+		width: 350px;
 	 }
 	}
 

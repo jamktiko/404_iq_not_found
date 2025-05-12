@@ -230,7 +230,7 @@
 		}
 	}
 	img {
-		width: 68px;
+		width: 50px;
 		height: auto;
 	}
 </style>
