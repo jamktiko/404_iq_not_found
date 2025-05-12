@@ -62,8 +62,6 @@
 </div>
 
 <style>
-	/* Default */
-
 	.asetukset {
 		width: 60px;
 		position: absolute;
