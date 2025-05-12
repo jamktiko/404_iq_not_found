@@ -25,9 +25,11 @@
 
 	let show = $state(false);
 	let menikoOikein: 'Oikein!' | 'Väärin!' = $state('Oikein!');
+	let disabled = $state(false);
 
 	function onkoOikeaVastaus(vastaus: string) {
 		//parempi virheen tarkastus id:n kanssa???
+		disabled = true;
 		if (vastaus === oikeaVastaus) {
 			//tässä pitäisi lisätä pisteen ja näyttää käyttäjälle, että oliko oikein
 			//samalla laittaa timeouttiin, että menee seuraavaan kysymykseen
@@ -37,6 +39,7 @@
 			show = true;
 			setTimeout(() => (show = false), 1000);
 			setTimeout(() => monesKysymys++, 1500);
+			setTimeout(() => (disabled = false), 1600);
 			return;
 		}
 
@@ -44,6 +47,7 @@
 		show = true;
 		setTimeout(() => (show = false), 1000);
 		setTimeout(() => monesKysymys++, 1500);
+		setTimeout(() => (disabled = false), 1600);
 	}
 
 	let isExpanded = $state(false);
@@ -71,7 +75,12 @@
 
 	{#if vastaukset}
 		{#each vastaukset as vastaus}
-			<Button vastaus={true} otsikko={vastaus} onclick={() => onkoOikeaVastaus(vastaus)} />
+			<Button
+				vastaus={true}
+				otsikko={vastaus}
+				onclick={() => onkoOikeaVastaus(vastaus)}
+				{disabled}
+			/>
 			<br />
 		{/each}
 	{/if}

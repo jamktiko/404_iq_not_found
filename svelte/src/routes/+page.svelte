@@ -3,43 +3,70 @@
 	import Button from '$lib/components/Button.svelte';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-
 	import { fade, fly } from 'svelte/transition';
 
-	onMount(() => {
-		document.body.className = 'aloitussivu-body';
-	});
+	import { asetukset } from '$lib/components/asetukset.svelte';
 
-	//tee sivu pelille ja reititä
+	let teema = $state(asetukset.teema);
+
+	// onMount(() => {
+	// 	document.body.classList.remove('theme-default', 'theme-olio', 'theme-kahvi');
+	// 	document.body.classList.add(`theme-${teema}`);
+	// });
+
+	import Modalv404 from '$lib/components/Modalv404.svelte';
+	let showModal = $state(false);
+	function closeModal() {
+		showModal = false;
+	}
+	// in:fade={{ delay: 900, duration: 500 }} out:fly={{ x: -1000, duration: 1000, delay: 300 }}
 </script>
 
-<!--teemavalitsin, montakysymystä, ns asetukset-->
-
 <!--Aloitussivu-->
+
 <div
 	class="body"
-	in:fade={{ delay: 100, duration: 500 }}
-	out:fly={{ x: -1000, duration: 800, delay: 500 }}
+	in:fade={{ delay: 900, duration: 500 }}
+	out:fly={{ x: -1000, duration: 1000, delay: 300 }}
 >
-	<div class="info">i</div>
-	<div>
-		<h2>404</h2>
-		<h1>IQ Not Found</h1>
-		<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+	<button onclick={() => (showModal = true)} class="info">i</button>
+	<Modalv404
+		bind:open={showModal}
+		title="infopläjäys"
+		onClose={closeModal}
+		showFooter={false}
+		info={true}
+	>
+		{#snippet children()}
+			<p>404 IQ Not Found on yksinkertainen tietovisa, jossa</p>
+			<p>luetaan koodia kuvasta ja vastataan monivalintakysymykseen.</p>
+			<p>Pelin tarkoitus on opetella koodin lukemista.</p>
+			<p>Voit valita oman teeman ja kuinka monta kysymystä haluat!</p>
+			<hr />
+			<p>Tekijät: Netta, Minttu, Annika, Joona</p>
+		{/snippet}
+	</Modalv404>
+
+	<h2>404</h2>
+	<h1>IQ Not Found</h1>
+	<Button vastaus={false} otsikko="Aloita" disabled={false} onclick={() => goto('/Pelisivu')} />
+	<div
+		class="settings"
+		onclick={() => {
+			goto('/Asetukset');
+		}}
+		style="cursor: pointer;"
+	>
+		<img class="asetukset" src="/img/settings.png" alt="settings" />
 	</div>
 </div>
 
 <style>
-	/* Tämä vaikuttaa myös pelisivuun!!!! */
-	:global(body.aloitussivu-body) {
-		overflow-x: hidden;
-		overflow-y: hidden;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: url('img/taustakuvakokeilu.png') no-repeat center center fixed black;
-		background-size: cover;
-		color: white;
+	.asetukset {
+		width: 60px;
+		position: absolute;
+		top: 40px;
+		left: 30px;
 	}
 	.body {
 		margin: 0;
@@ -97,44 +124,72 @@
 		text-align: center;
 		cursor: pointer;
 	}
+
+	.info:hover {
+		background: #083a08;
+	}
+	
+
 	@media (max-width: 900px) {
-    h1 {
-      font-size: 100px;
-    }
-    h2 {
-      font-size: 130px;
-      padding: 10px;
-    }
-  }
-  
-  @media (max-width: 820px) {
-    h1 {
-      font-size: 90px;
-      -webkit-text-stroke: 6px #ffffff;
-    }
-    h2 {
-      font-size: 120px;
-      padding: 10px;
-    }
-  }
-  @media (max-width: 700px) {
-    h1 {
-      font-size: 85px;
-      -webkit-text-stroke: 5px #ffffff;
-    }
-    h2 {
-      font-size: 95px;
-      padding: 10px;
-    }
-  }
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 80px;
-      -webkit-text-stroke: 4px #ffffff;
-    }
-    h2 {
-      font-size: 100px;
-      padding: 10px;
-    }
-  }
+		h1 {
+			font-size: 100px;
+		}
+		h2 {
+			font-size: 130px;
+			padding: 10px;
+		}
+	}
+
+	@media (max-width: 820px) {
+		h1 {
+			font-size: 90px;
+			-webkit-text-stroke: 6px #ffffff;
+		}
+		h2 {
+			font-size: 120px;
+			padding: 10px;
+		}
+	}
+	@media (max-width: 700px) {
+		h1 {
+			font-size: 85px;
+			-webkit-text-stroke: 5px #ffffff;
+		}
+		h2 {
+			font-size: 95px;
+			padding: 10px;
+		}
+	}
+		@media (max-width: 650px) {
+		h1 {
+			font-size: 70px;
+			-webkit-text-stroke: 5px #ffffff;
+		}
+		h2 {
+			font-size: 95px;
+			padding: 10px;
+		}
+	}
+
+
+	@media (max-width: 600px) {
+		h1 {
+			font-size: 60px;
+			-webkit-text-stroke: 3px #ffffff;
+		}
+		h2 {
+			font-size: 90px;
+			margin: 20px;
+		}
+		.info {
+			position:absolute;
+			right: 10px;
+			top:10px;
+		}
+		.asetukset {
+			position:absolute;
+			left:10px;
+			top:10px;
+		}	
+	}
 </style>
