@@ -1,4 +1,5 @@
 import type { Asetukset } from '$lib/types/asetukset';
+import { theme } from '$lib/stores/teemaStore';
 
 type teemat = 'default' | 'olio' | 'kahvi';
 
@@ -10,6 +11,7 @@ export const asetukset = {
 	},
 	set teema(a: teemat) {
 		haluttuAsetus.teema = a;
+		theme.set(a);
 	},
 	get montaKysymysta() {
 		return haluttuAsetus.montaKysymysta;
