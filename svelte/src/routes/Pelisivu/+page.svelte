@@ -154,7 +154,7 @@
 		>
 			<div class="center-box">
 				<p class="viesti">Onnea, pääsit pelin loppuun!</p>
-				<p class="pisteet">Pisteet: <span id="pisteet">{pisteet}</span></p>
+				<p class="pisteet-k">Pisteet: <span id="pisteet">{pisteet}</span></p>
 			</div>
 			<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
 		</div>
@@ -177,7 +177,7 @@
 		width: 70px;
 		height: 50px;
 		font-size: 24px;
-	}
+	} 
 	.vinkki {
 		position: absolute;
 		top: 140px;
@@ -221,7 +221,14 @@
 		margin-bottom: 1rem;
 		text-align: center;
 	}
-	.center-box .pisteet {
+	/*.center-box .pisteet {
+		text-align: center;
+		align-items: center;
+		font-weight: bold;
+    font-size: 1.5rem;
+		margin-top: 30px; */
+	
+	.pisteet-k {
 		text-align: center;
 		align-items: center;
 		font-weight: bold;
@@ -229,7 +236,7 @@
 		margin-top: 30px;
 	}
 
-	@media (max-width: 700px) {
+	@media (max-width: 1200px) {
 		.center-box {
 			width: 400px;
 			padding: 1.5rem;
@@ -269,5 +276,7 @@
 	 .pisteet {
 		font-size: 20px;
 	 }
+
 	}
+
 </style>

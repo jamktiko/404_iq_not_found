@@ -154,10 +154,9 @@
 			max-width: 100%;
 		}
 	}
-	@media (max-width:600px) {
+	/*@media (max-width:600px) {
 		.container {
 			margin-bottom: 100px;
 		}
-		
-	}
+		*/
 </style>
