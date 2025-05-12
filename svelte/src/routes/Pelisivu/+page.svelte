@@ -160,9 +160,9 @@
 	}
 
 	.pisteet {
-		position: absolute;
+    position: absolute;
 		top: 10px;
-		right: 100px;
+		right: 200px;
 		width: 70px;
 		height: 50px;
 		font-size: 24px;
@@ -203,9 +203,12 @@
 		text-align: center;
 	}
 	.center-box .pisteet {
-		font-weight: bold;
-		font-size: 1.5rem;
 		text-align: center;
+		align-items: center;
+		font-weight: bold;
+    font-size: 1.5rem;
+		text-align: center;
+		margin-top: 20px;
 	}
 
 	@media (max-width: 1200px) {
@@ -220,7 +223,7 @@
 		.pisteet {
 			position: relative;
 			top: auto;
-			left: auto;
+			left: 120px;
 			right: auto;
 			width: auto;
 			height: auto;
@@ -233,4 +236,25 @@
 		width: 50px;
 		height: auto;
 	}
+	@media (max-width:1200px) {
+		img {
+			position:fixed;
+			top: 0px;
+      right: 0px;
+      z-index: 1000;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+
+		}
+	 .pisteet {
+		font-size: 20px;
+	 }
+	}
+		
+
+
 </style>
