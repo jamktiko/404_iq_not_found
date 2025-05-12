@@ -25,6 +25,7 @@
 		overflow-x: hidden;
 		overflow-y: hidden;
 		background: url('/img/taustakuvakokeilu.png') no-repeat center center fixed black;
+		background-size: cover;
 		color: white;
 		font-family: 'Jaro', sans-serif;
 	}
@@ -32,6 +33,8 @@
 		overflow-x: hidden;
 		overflow-y: hidden;
 		background: url('/img/Hi.gif') no-repeat center center fixed black;
+		background-size: cover;
+
 		color: black;
 		font-family: 'Jaro', sans-serif;
 	}
@@ -39,6 +42,8 @@
 		overflow-x: hidden;
 		overflow-y: hidden;
 		background: url() no-repeat center center fixed rgb(215, 155, 121);
+		background-size: cover;
+
 		color: white;
 		font-family: 'Jaro', sans-serif;
 	}
