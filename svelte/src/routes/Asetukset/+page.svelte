@@ -26,7 +26,7 @@
 		}
 		if (monta > 20 || monta === 69) {
 			if (monta === 69) {
-				viesti = 'hehe';
+				viesti = 'hehe, Nice';
 			} else {
 				viesti = '20 on maksimi!!!';
 			}
