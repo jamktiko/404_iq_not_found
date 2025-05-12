@@ -12,6 +12,7 @@
 
 	function asetaTeema() {
 		asetukset.teema = teema;
+
 		show = true;
 		viesti = `Teema asetettu: ${teema}`;
 		setTimeout(() => (show = false), 1500);
@@ -39,6 +40,7 @@
 		if (monta < 0) {
 			viesti = 'Senkin höpsö';
 		}
+
 		asetukset.montaKysymysta = monta;
 	}
 </script>
