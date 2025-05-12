@@ -19,11 +19,12 @@
 	function closeModal() {
 		showModal = false;
 	}
+	// in:fade={{ delay: 900, duration: 500 }} out:fly={{ x: -1000, duration: 1000, delay: 300 }}
 </script>
 
 <!--Aloitussivu-->
 
-<div in:fade={{ delay: 900, duration: 500 }} out:fly={{ x: -1000, duration: 1000, delay: 300 }}>
+<div>
 	{#if teema === 'default'}
 		<div
 			class="body_default"
