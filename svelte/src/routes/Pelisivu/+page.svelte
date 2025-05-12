@@ -227,6 +227,9 @@
 		font-size: 1.5rem;
 		text-align: center;
 	}
+	.center-box p {
+		color: white;
+	}
 
 	@media (max-width: 1200px) {
 		.center-box {
