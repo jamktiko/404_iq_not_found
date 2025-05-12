@@ -48,14 +48,14 @@
 		<h1 transition:fade={{ duration: 300 }}>{viesti}</h1>
 	{/if}
 
-	<select bind:value={teema}>
+	<select bind:value={teema} class="teema">
 		<option value="default">Default</option>
 		<option value="olio">Olio</option>
 		<option value="kahvi">Kahvi</option>
 	</select>
 	<Button vastaus={false} otsikko="Aseta teema" disabled={false} onclick={() => asetaTeema()} />
 
-	<input type="number" bind:value={monta} />
+	<input type="number" bind:value={monta} class="monta" />
 	<Button
 		vastaus={false}
 		otsikko="Aseta kysymysten määrä"
@@ -77,4 +77,40 @@
 		font-family: 'Jaro', sans-serif;
 		text-align: center;
 	}
+.teema {
+	display: block;
+	width: 150px;
+	background: rgb(233, 231, 231);
+	color: rgb(0, 0, 0);
+	font-family: 'Jaro';
+	border: 2px solid white;
+	border-radius: 15px;
+	padding: 10px;
+	margin: 1px 0;
+	font-size: 20px;
+	cursor: pointer;
+	transition: background 0.3s;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+.teema:hover {
+	background:#b4b4b4;
+}
+.monta {
+	display: block;
+	width: 120px;
+	height: 25px;
+	background: rgb(233, 231, 231);
+	color: rgb(0, 0, 0);
+	font-family: 'Jaro';
+	border: 2px solid white;
+	border-radius: 15px;
+	padding: 10px;
+	margin: 1px 0;
+	font-size: 20px;
+	cursor: pointer;
+	transition: background 0.3s;
+	text-overflow: ellipsis;
+	text-align: center;
+}
 </style>
