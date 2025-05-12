@@ -164,8 +164,7 @@
 </div>
 
 <style>
-	/* div {
-	} */
+
 
 	.exit {
 		width: fit-content;
@@ -227,13 +226,12 @@
 		align-items: center;
 		font-weight: bold;
     font-size: 1.5rem;
-		text-align: center;
-		margin-top: 20px;
+		margin-top: 30px;
 	}
 
-	@media (max-width: 1200px) {
+	@media (max-width: 700px) {
 		.center-box {
-			width: 80%;
+			width: 400px;
 			padding: 1.5rem;
 		}
 		.moneskysymys,
@@ -272,8 +270,4 @@
 		font-size: 20px;
 	 }
 	}
-		
-
-
-
 </style>
