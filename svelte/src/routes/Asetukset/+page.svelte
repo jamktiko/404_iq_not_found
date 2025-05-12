@@ -12,6 +12,7 @@
 
 	function asetaTeema() {
 		asetukset.teema = teema;
+
 		show = true;
 		viesti = `Teema asetettu: ${teema}`;
 		setTimeout(() => (show = false), 1500);
@@ -25,7 +26,7 @@
 		}
 		if (monta > 20 || monta === 69) {
 			if (monta === 69) {
-				viesti = 'hehe';
+				viesti = 'hehe, Nice';
 			} else {
 				viesti = '20 on maksimi!!!';
 			}
@@ -33,15 +34,19 @@
 		if (monta === 1) {
 			viesti = '...';
 		}
+		if (monta === 2) {
+			viesti = 'Nössö';
+		}
 		if (monta < 0) {
 			viesti = 'Senkin höpsö';
 		}
+
 		asetukset.montaKysymysta = monta;
 	}
 </script>
 
 <div
-	in:fly={{ x: -1000, delay: 2500, duration: 500 }}
+	in:fly={{ x: -1000, delay: 1500, duration: 500 }}
 	out:fly={{ x: -1000, duration: 800, delay: 50 }}
 >
 	{#if show}
