@@ -115,10 +115,18 @@
     padding: 10px;
   }
 }
+@media (max-width: 650px) {
+  .eiVastaus {
+    width: 400px;
+    padding: 10px;
+		margin:10px;
+  }
+}
 @media (max-width: 600px) {
   .eiVastaus {
-    width: 450px;
+    width: 300px;
     padding: 10px;
+		margin:10px;
   }
 }
 </style>

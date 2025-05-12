@@ -202,7 +202,9 @@
 		text-align: center;
 		cursor: pointer;
 	}
-
+	.info:hover {
+		background: #083a08;
+	}
 	/* Olio */
 
 	:global(body.theme-olio) {
@@ -279,14 +281,36 @@
 			padding: 10px;
 		}
 	}
-	@media (max-width: 600px) {
+		@media (max-width: 650px) {
 		h1 {
-			font-size: 80px;
-			-webkit-text-stroke: 4px #ffffff;
+			font-size: 70px;
+			-webkit-text-stroke: 5px #ffffff;
 		}
 		h2 {
-			font-size: 100px;
+			font-size: 95px;
 			padding: 10px;
 		}
+	}
+
+
+	@media (max-width: 600px) {
+		h1 {
+			font-size: 60px;
+			-webkit-text-stroke: 3px #ffffff;
+		}
+		h2 {
+			font-size: 90px;
+			margin: 20px;
+		}
+		.info {
+			position:absolute;
+			right: 10px;
+			top:10px;
+		}
+		.asetukset {
+			position:absolute;
+			left:10px;
+			top:10px;
+		}	
 	}
 </style>
