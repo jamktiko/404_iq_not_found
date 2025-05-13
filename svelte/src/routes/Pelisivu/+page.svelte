@@ -154,7 +154,7 @@
 		>
 			<div class="center-box">
 				<p class="viesti">Onnea, pääsit pelin loppuun!</p>
-				<p class="pisteet">Pisteet: <span id="pisteet">{pisteet}</span></p>
+				<p class="pisteet-k">Pisteet: <span id="pisteet">{pisteet}</span></p>
 			</div>
 			<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
 		</div>
@@ -164,21 +164,20 @@
 </div>
 
 <style>
-	/* div {
-	} */
+
 
 	.exit {
 		width: fit-content;
 	}
 
 	.pisteet {
-		position: absolute;
+    position: absolute;
 		top: 10px;
-		right: 100px;
+		right: 200px;
 		width: 70px;
 		height: 50px;
 		font-size: 24px;
-	}
+	} 
 	.vinkki {
 		position: absolute;
 		top: 140px;
@@ -222,45 +221,63 @@
 		margin-bottom: 1rem;
 		text-align: center;
 	}
-	.center-box .pisteet {
-		font-weight: bold;
-		font-size: 1.5rem;
+	/*.center-box .pisteet {
 		text-align: center;
+		align-items: center;
+		font-weight: bold;
+    font-size: 1.5rem;
+		margin-top: 30px; */
+	
+	.pisteet-k {
+		text-align: center;
+		align-items: center;
+		font-weight: bold;
+    font-size: 1.5rem;
+		margin-top: 30px;
 	}
 
 	@media (max-width: 1200px) {
 		.center-box {
-			width: 80%;
+			width: 400px;
 			padding: 1.5rem;
 		}
 		.moneskysymys,
 		.pisteet {
 			position: relative;
 			top: auto;
-			left: auto;
+			left: 100px;
 			right: auto;
 			width: auto;
 			height: auto;
 			font-size: 14px;
-			display: inline-block;
 			margin: 0 10px;
+		  display: inline-block;
 		}
 	}
+	
 	img {
-		width: 68px;
+		width: 50px;
 		height: auto;
 	}
-	.vinkki {
-		transform: translateX(50px);
-	}
-	@media (max-width: 1210px) {
-		.vinkki {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-			font-size: 20px;
-			padding: 4px;
-			z-index: 100;
+
+	@media (max-width:1200px) {
+		img {
+			position:fixed;
+			top: 0px;
+      right: 0px;
+      z-index: 1000;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+
 		}
+	 .pisteet {
+		font-size: 20px;
+	 }
+
 	}
+
 </style>
