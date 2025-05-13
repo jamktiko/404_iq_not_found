@@ -80,17 +80,37 @@
 	}
 	h2 {
 		color: #7d1313;
-		-webkit-text-stroke: 7px #ff0000;
+		/* -webkit-text-stroke: 7px #ff0000; */
 		font-family: 'Jaro';
 		font-size: 144px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.2;
-		text-shadow:
+		/* text-shadow:
 			1px 1px 15px #ff0000,
-			1px 1px 15px #ff0000;
+			1px 1px 15px #ff0000; */
 		margin-top: 0px;
 		margin-bottom: 5px;
+		animation: glow 1s ease-in-out infinite alternate;
+	}
+
+	@-webkit-keyframes glow {
+		from {
+			text-shadow:
+				0 0 10px #dfcccce7,
+				0 0 30px #d13434e9,
+				0 0 40px #d13434e9,
+				0 0 50px #d13434e9;
+		}
+
+		to {
+			text-shadow:
+				0 0 10px #dfcccc7d,
+				0 0 30px #ff0000de,
+				0 0 40px #ff0000de,
+				0 0 50px #ff0000de,
+				0 0 60px #ff0000de;
+		}
 	}
 
 	h1 {
@@ -128,7 +148,6 @@
 	.info:hover {
 		background: #083a08;
 	}
-	
 
 	@media (max-width: 900px) {
 		h1 {
@@ -160,7 +179,7 @@
 			padding: 10px;
 		}
 	}
-		@media (max-width: 650px) {
+	@media (max-width: 650px) {
 		h1 {
 			font-size: 70px;
 			-webkit-text-stroke: 5px #ffffff;
@@ -170,7 +189,6 @@
 			padding: 10px;
 		}
 	}
-
 
 	@media (max-width: 600px) {
 		h1 {
@@ -182,14 +200,14 @@
 			margin: 20px;
 		}
 		.info {
-			position:absolute;
+			position: absolute;
 			right: 10px;
-			top:10px;
+			top: 10px;
 		}
 		.asetukset {
-			position:absolute;
-			left:10px;
-			top:10px;
-		}	
+			position: absolute;
+			left: 10px;
+			top: 10px;
+		}
 	}
 </style>
