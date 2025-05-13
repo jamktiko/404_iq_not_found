@@ -245,15 +245,16 @@
 		.pisteet {
 			position: relative;
 			top: auto;
-			left: 120px;
+			left: 100px;
 			right: auto;
 			width: auto;
 			height: auto;
 			font-size: 14px;
-			display: inline-block;
 			margin: 0 10px;
+		  display: inline-block;
 		}
 	}
+	
 	img {
 		width: 50px;
 		height: auto;
