@@ -8,14 +8,35 @@
 		document.body.className = 'aloitussivu-body';
 	});
 	import Modalv404 from '$lib/components/Modalv404.svelte';
+	import { playClickSound } from '$lib/types/audio';
 	let showModal = $state(false);
 	function closeModal() {
 		showModal = false;
 	}
+//  function playSound() {
+// 		Audio.currentTime = 0; // Reset the audio to the beginning
+// 		audio.play().catch((error) => {
+// 			console.error('Audio failed to play:', error);
+// 		});
+// 	}
 
+//   let playSound = $state(0);
+
+//   const audio = new Audio('/sounds/testi1.mp3');
+
+//   $effect(() => {
+// 	if (playSound > 0) {
+// 		audio.play().catch((error) => {
+// 			console.error('Audio failed to play:', error);
+// 		});
+// 	}
+//   })
 	//tee sivu pelille ja reititä
+
+
 </script>
 
+<!-- <button onclick={() => playSound++}>Click Me!!</button> -->
 <!--teemavalitsin, montakysymystä, ns asetukset-->
 
 <!--Aloitussivu-->
