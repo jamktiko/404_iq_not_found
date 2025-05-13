@@ -2,24 +2,17 @@
 	import '$lib/fonts/fonts.css';
 	import Button from '$lib/components/Button.svelte';
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-
-	import { asetukset } from '$lib/components/asetukset.svelte';
-
-	let teema = $state(asetukset.teema);
-
-	// onMount(() => {
-	// 	document.body.classList.remove('theme-default', 'theme-olio', 'theme-kahvi');
-	// 	document.body.classList.add(`theme-${teema}`);
-	// });
-
 	import Modalv404 from '$lib/components/Modalv404.svelte';
+
+	//ÄLÄ POISTA TÄTÄ ASETUKSET JUTTUA, MUUTEN TAUSTAKUVA EI NÄY (EN TIIÄ MIKS)
+	import { asetukset } from '$lib/components/asetukset.svelte';
+	//ÄLÄ POISTA TÄTÄ ASETUKSET JUTTUA, MUUTEN TAUSTAKUVA EI NÄY (EN TIIÄ MIKS)
+
 	let showModal = $state(false);
 	function closeModal() {
 		showModal = false;
 	}
-	// in:fade={{ delay: 900, duration: 500 }} out:fly={{ x: -1000, duration: 1000, delay: 300 }}
 </script>
 
 <!--Aloitussivu-->

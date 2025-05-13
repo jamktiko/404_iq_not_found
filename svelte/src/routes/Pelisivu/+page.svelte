@@ -3,7 +3,7 @@
 	import Kysymys from '$lib/components/Kysymys.svelte';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { fly, blur } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import type { IKysymys } from '$lib/types/kysymys.d.ts';
 
 	import { asetukset } from '$lib/components/asetukset.svelte';
@@ -139,13 +139,6 @@
 				</div>
 			{/key}
 		</div>
-		<div
-			class="vinkki"
-			in:fly={{ x: 300, duration: 1000, delay: 2800 }}
-			out:fly={{ x: -300, duration: 1000, delay: 1300 }}
-		>
-			<p>Klikkaa kuvaa suurentaaksesi sitä</p>
-		</div>
 	{:else if monesKysymys - 1 == montaKysymysta}
 		<div
 			class="overlay"
@@ -154,7 +147,7 @@
 		>
 			<div class="center-box">
 				<p class="viesti">Onnea, pääsit pelin loppuun!</p>
-				<p class="pisteet">Pisteet: <span id="pisteet">{pisteet}</span></p>
+				<p class="pisteet-k">Pisteet: <span id="pisteet">{pisteet}</span></p>
 			</div>
 			<Button vastaus={false} otsikko="Uudestaan" disabled={false} onclick={() => goto('/')} />
 		</div>
@@ -164,9 +157,6 @@
 </div>
 
 <style>
-	/* div {
-	} */
-
 	.exit {
 		width: fit-content;
 	}
@@ -174,19 +164,12 @@
 	.pisteet {
 		position: absolute;
 		top: 10px;
-		right: 100px;
+		right: 200px;
 		width: 70px;
 		height: 50px;
 		font-size: 24px;
 	}
-	.vinkki {
-		position: absolute;
-		top: 140px;
-		right: 90px;
-		width: 200px;
-		height: 50px;
-		font-size: 20px;
-	}
+
 	.moneskysymys {
 		position: absolute;
 		top: 10px;
@@ -222,10 +205,19 @@
 		margin-bottom: 1rem;
 		text-align: center;
 	}
-	.center-box .pisteet {
+	/*.center-box .pisteet {
+		text-align: center;
+		align-items: center;
+		font-weight: bold;
+    font-size: 1.5rem;
+		margin-top: 30px; */
+
+	.pisteet-k {
+		text-align: center;
+		align-items: center;
 		font-weight: bold;
 		font-size: 1.5rem;
-		text-align: center;
+		margin-top: 30px;
 	}
 	.center-box p {
 		color: white;
@@ -233,37 +225,43 @@
 
 	@media (max-width: 1200px) {
 		.center-box {
-			width: 80%;
+			width: 400px;
 			padding: 1.5rem;
 		}
 		.moneskysymys,
 		.pisteet {
 			position: relative;
 			top: auto;
-			left: auto;
+			left: 100px;
 			right: auto;
 			width: auto;
 			height: auto;
 			font-size: 14px;
-			display: inline-block;
 			margin: 0 10px;
+			display: inline-block;
 		}
 	}
+
 	img {
-		width: 68px;
+		width: 50px;
 		height: auto;
 	}
-	.vinkki {
-		transform: translateX(50px);
-	}
-	@media (max-width: 1210px) {
-		.vinkki {
-			position: absolute;
-			top: 10px;
-			right: 10px;
+
+	@media (max-width: 1200px) {
+		img {
+			position: fixed;
+			top: 0px;
+			right: 0px;
+			z-index: 1000;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 10px;
+			border: none;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		.pisteet {
 			font-size: 20px;
-			padding: 4px;
-			z-index: 100;
 		}
 	}
 </style>

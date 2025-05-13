@@ -20,15 +20,11 @@
 		pisteet = $bindable()
 	}: Props = $props();
 
-	//KATSO KESKIVIIKKONA!!!!
-	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
-
 	let show = $state(false);
 	let menikoOikein: 'Oikein!' | 'Väärin!' = $state('Oikein!');
 	let disabled = $state(false);
 
 	function onkoOikeaVastaus(vastaus: string) {
-		//parempi virheen tarkastus id:n kanssa???
 		disabled = true;
 		if (vastaus === oikeaVastaus) {
 			//tässä pitäisi lisätä pisteen ja näyttää käyttäjälle, että oliko oikein
@@ -89,8 +85,12 @@
 <style>
 	.menikoOikein {
 		position: absolute;
+		left: 50%;
+		top: 5px;
+		transform: translateX(-50%);
+		/*position: absolute;
 		left: 700px;
-		top: 30px;
+		top: 30px;*/
 	}
 	img.expanded {
 		position: fixed;
@@ -111,7 +111,7 @@
 		border-radius: 10px;
 		text-align: center;
 		max-width: 90%;
-		width: 100%;
+		width: 550px;
 		box-sizing: border-box;
 		margin-left: auto;
 		margin-right: auto;
@@ -123,19 +123,19 @@
 
 	.code-block {
 		background: #201f1faa;
-		max-width: 700px;
-		height: 150px;
+		max-width: 800px;
+		height: 220px;
 		margin-bottom: 10px;
 		border-radius: 20px;
 	}
 	.container {
-		max-width: 700px;
-		height: 150x;
+		max-width: 750px;
 		overflow: hidden;
-		margin: 5px auto;
-		justify-content: center;
+		margin: 0px auto;
 		border-radius: 20px;
-		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.container img {
 		width: 100%;
@@ -147,11 +147,21 @@
 			max-width: 350px;
 		}
 		.question {
-			font-size: 12px;
+			font-size: 15px;
 		}
 
 		img {
-			max-width: 90%;
+			max-width: 100%;
 		}
 	}
+	/*@media (max-width:600px) {
+		.container {
+			margin-bottom: 100px;
+		}
+		*/
+		@media (max-width: 600px) {
+			.menikoOikein {
+				top: 70px;
+			}
+		}
 </style>
