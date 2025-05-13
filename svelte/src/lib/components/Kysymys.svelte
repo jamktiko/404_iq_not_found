@@ -20,15 +20,11 @@
 		pisteet = $bindable()
 	}: Props = $props();
 
-	//KATSO KESKIVIIKKONA!!!!
-	//Pisteistä ja moneskysymys pitää tehdä globaali muuttujat, että niitä voidaan välittää pelisivun ja tämän komponentin väleillä
-
 	let show = $state(false);
 	let menikoOikein: 'Oikein!' | 'Väärin!' = $state('Oikein!');
 	let disabled = $state(false);
 
 	function onkoOikeaVastaus(vastaus: string) {
-		//parempi virheen tarkastus id:n kanssa???
 		disabled = true;
 		if (vastaus === oikeaVastaus) {
 			//tässä pitäisi lisätä pisteen ja näyttää käyttäjälle, että oliko oikein
@@ -137,9 +133,9 @@
 		overflow: hidden;
 		margin: 0px auto;
 		border-radius: 20px;
-		display: flex; 
-	 flex-direction: column;
-	 align-items: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.container img {
 		width: 100%;

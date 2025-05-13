@@ -2,24 +2,17 @@
 	import '$lib/fonts/fonts.css';
 	import Button from '$lib/components/Button.svelte';
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-
-	import { asetukset } from '$lib/components/asetukset.svelte';
-
-	let teema = $state(asetukset.teema);
-
-	// onMount(() => {
-	// 	document.body.classList.remove('theme-default', 'theme-olio', 'theme-kahvi');
-	// 	document.body.classList.add(`theme-${teema}`);
-	// });
-
 	import Modalv404 from '$lib/components/Modalv404.svelte';
+
+	//ÄLÄ POISTA TÄTÄ ASETUKSET JUTTUA, MUUTEN TAUSTAKUVA EI NÄY (EN TIIÄ MIKS)
+	import { asetukset } from '$lib/components/asetukset.svelte';
+	//ÄLÄ POISTA TÄTÄ ASETUKSET JUTTUA, MUUTEN TAUSTAKUVA EI NÄY (EN TIIÄ MIKS)
+
 	let showModal = $state(false);
 	function closeModal() {
 		showModal = false;
 	}
-	// in:fade={{ delay: 900, duration: 500 }} out:fly={{ x: -1000, duration: 1000, delay: 300 }}
 </script>
 
 <!--Aloitussivu-->
@@ -128,7 +121,6 @@
 	.info:hover {
 		background: #083a08;
 	}
-	
 
 	@media (max-width: 900px) {
 		h1 {
@@ -160,7 +152,7 @@
 			padding: 10px;
 		}
 	}
-		@media (max-width: 650px) {
+	@media (max-width: 650px) {
 		h1 {
 			font-size: 70px;
 			-webkit-text-stroke: 5px #ffffff;
@@ -170,7 +162,6 @@
 			padding: 10px;
 		}
 	}
-
 
 	@media (max-width: 600px) {
 		h1 {
@@ -182,14 +173,14 @@
 			margin: 20px;
 		}
 		.info {
-			position:absolute;
+			position: absolute;
 			right: 10px;
-			top:10px;
+			top: 10px;
 		}
 		.asetukset {
-			position:absolute;
-			left:10px;
-			top:10px;
-		}	
+			position: absolute;
+			left: 10px;
+			top: 10px;
+		}
 	}
 </style>

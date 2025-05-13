@@ -2,11 +2,6 @@
 	import '$lib/fonts/fonts.css';
 	import type { Snippet } from 'svelte';
 
-	import { asetukset } from '$lib/components/asetukset.svelte';
-	import { theme } from '$lib/stores/teemaStore';
-
-	let teema = $state(asetukset.teema);
-
 	interface Props {
 		children: Snippet;
 	}
