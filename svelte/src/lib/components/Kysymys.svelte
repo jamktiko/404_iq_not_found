@@ -89,8 +89,12 @@
 <style>
 	.menikoOikein {
 		position: absolute;
+		left: 50%;
+		top: 8px;
+		transform: translateX(-50%);
+		/*position: absolute;
 		left: 700px;
-		top: 30px;
+		top: 30px;*/
 	}
 	img.expanded {
 		position: fixed;
@@ -159,4 +163,9 @@
 			margin-bottom: 100px;
 		}
 		*/
+		@media (max-width: 600px) {
+			.menikoOikein {
+				top: 50px;
+			}
+		}
 </style>
