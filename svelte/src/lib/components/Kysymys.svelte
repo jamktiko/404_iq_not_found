@@ -86,7 +86,7 @@
 	.menikoOikein {
 		position: absolute;
 		left: 50%;
-		top: 8px;
+		top: 5px;
 		transform: translateX(-50%);
 		/*position: absolute;
 		left: 700px;
@@ -161,7 +161,7 @@
 		*/
 		@media (max-width: 600px) {
 			.menikoOikein {
-				top: 50px;
+				top: 70px;
 			}
 		}
 </style>
