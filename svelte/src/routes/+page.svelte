@@ -125,23 +125,26 @@
 		margin-bottom: 65px;
 	}
 	.info {
-		position: absolute;
-		top: 40px;
-		right: 30px;
-		width: 50px;
-		height: 50px;
-		background-color: black;
-		border: 3px solid rgb(255, 255, 255);
-		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-		border-radius: 8px;
-		color: white;
-		font-weight: bold;
-		font-family: sans-serif;
-		font-size: 42px;
-		text-align: center;
-		cursor: pointer;
-	}
-
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border: 3px solid rgb(255, 255, 255);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 42px;
+  text-align: center;
+  cursor: pointer;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  line-height: 50px; /* Match the height to ensure proper alignment */
+}
 	.info:hover {
 		background: #083a08;
 	}
