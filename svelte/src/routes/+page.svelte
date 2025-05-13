@@ -4,6 +4,8 @@
 	import { goto } from '$app/navigation';
 	import { fade, fly } from 'svelte/transition';
 	import Modalv404 from '$lib/components/Modalv404.svelte';
+	//ÄLÄ POISTA TÄTÄ ASETUKSET JUTTUA, MUUTEN TAUSTAKUVA EI NÄY (EN TIIÄ MIKS)
+	import { asetukset } from '$lib/components/asetukset.svelte';
 	let showModal = $state(false);
 	function closeModal() {
 		showModal = false;
