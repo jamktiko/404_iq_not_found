@@ -3,7 +3,7 @@
 	import Kysymys from '$lib/components/Kysymys.svelte';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { fly, blur } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import type { IKysymys } from '$lib/types/kysymys.d.ts';
 
 	import { asetukset } from '$lib/components/asetukset.svelte';
@@ -139,13 +139,6 @@
 				</div>
 			{/key}
 		</div>
-		<div
-			class="vinkki"
-			in:fly={{ x: 300, duration: 1000, delay: 2800 }}
-			out:fly={{ x: -300, duration: 1000, delay: 1300 }}
-		>
-			<p>Klikkaa kuvaa suurentaaksesi sitä</p>
-		</div>
 	{:else if monesKysymys - 1 == montaKysymysta}
 		<div
 			class="overlay"
@@ -164,28 +157,19 @@
 </div>
 
 <style>
-
-
 	.exit {
 		width: fit-content;
 	}
 
 	.pisteet {
-    position: absolute;
+		position: absolute;
 		top: 10px;
 		right: 200px;
 		width: 70px;
 		height: 50px;
 		font-size: 24px;
-	} 
-	.vinkki {
-		position: absolute;
-		top: 140px;
-		right: 90px;
-		width: 200px;
-		height: 50px;
-		font-size: 20px;
 	}
+
 	.moneskysymys {
 		position: absolute;
 		top: 10px;
@@ -227,12 +211,12 @@
 		font-weight: bold;
     font-size: 1.5rem;
 		margin-top: 30px; */
-	
+
 	.pisteet-k {
 		text-align: center;
 		align-items: center;
 		font-weight: bold;
-    font-size: 1.5rem;
+		font-size: 1.5rem;
 		margin-top: 30px;
 	}
 
@@ -251,33 +235,30 @@
 			height: auto;
 			font-size: 14px;
 			margin: 0 10px;
-		  display: inline-block;
+			display: inline-block;
 		}
 	}
-	
+
 	img {
 		width: 50px;
 		height: auto;
 	}
 
-	@media (max-width:1200px) {
+	@media (max-width: 1200px) {
 		img {
-			position:fixed;
+			position: fixed;
 			top: 0px;
-      right: 0px;
-      z-index: 1000;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-
+			right: 0px;
+			z-index: 1000;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 10px;
+			border: none;
+			font-size: 16px;
+			cursor: pointer;
 		}
-	 .pisteet {
-		font-size: 20px;
-	 }
-
+		.pisteet {
+			font-size: 20px;
+		}
 	}
-
 </style>
