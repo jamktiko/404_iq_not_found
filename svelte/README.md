@@ -1,38 +1,62 @@
-# sv
+# 404 iq not found
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+"404 IQ Not Found" – a multiple-choice trivia game focused on code-reading skills.
 
-## Creating a project
+## About
+Tech Stack: JavaScript, TypeScript, CSS, Svelte5.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Getting Started
+# Prerequisites
+1. Node.js (v16 or higher).
+2. npm (recommended for SvelteKit).
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+### Installing
+1. Clone the repository:
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+git clone https://github.com/l44k/404_iq_not_found.git
+```
+2. Navigate to the project directory:
+```
+cd 404_iq_not_found
+```
+3. Install dependencies:
+```
+npm install
+```
+4. Launch the development server:
+```
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
+### Usage
 
-## Building
+- Open http://localhost:5173 in your browser.
 
-To create a production version of your app:
-
-```bash
+Build for production:
+```
 npm run build
 ```
+Preview the build:
+```
+npm run preview
+```
 
-You can preview the production build with `npm run preview`.
+## Authors
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Minttu Räisänen, Netta Tavi, Annika Järvinen, Joona Järvi 
+
+## Version History
+
+-  v0.1.0 
+
+-  v1.0.0
+
+## License
+
+This project is licensed under the CC BY-SA 4.0 License - see the LICENSE.md file for details
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+
+
