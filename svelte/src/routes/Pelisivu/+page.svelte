@@ -232,11 +232,11 @@
 		.pisteet {
 			position: relative;
 			top: auto;
-			left: 100px;
+			left: 35px;
 			right: auto;
 			width: auto;
 			height: auto;
-			font-size: 14px;
+			font-size: 13px;
 			margin: 0 10px;
 			display: inline-block;
 		}
