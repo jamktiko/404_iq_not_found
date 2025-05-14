@@ -69,7 +69,7 @@
 	@media (max-width: 600px) {
 		.vastaus {
 			font-size: 15px;
-			width: 350px;
+			width: 330px;
 		}
 	}
 	@media (max-width: 900px) {
