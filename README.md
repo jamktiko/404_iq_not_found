@@ -13,7 +13,7 @@ Tech Stack: JavaScript, TypeScript, CSS, Svelte5.
 ### Installing
 1. Clone the repository:
 ```
-git clone https://github.com/l44k/404_iq_not_found.git
+git clone https://github.com/jamktiko/404_iq_not_found.git
 ```
 2. Navigate to the project directory:
 ```
